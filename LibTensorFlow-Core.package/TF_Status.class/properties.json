@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "SergeStinckwich 2/5/2018 14:31",
+	"super" : "FFIExternalObject",
+	"category" : "LibTensorFlow-Core",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "TF_Status",
+	"type" : "normal"
+}

@@ -1,0 +1,3 @@
+types
+typeFloat
+	^ 1

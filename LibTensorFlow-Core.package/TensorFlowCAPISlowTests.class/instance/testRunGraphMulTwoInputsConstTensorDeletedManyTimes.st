@@ -1,0 +1,3 @@
+testing tensor
+testRunGraphMulTwoInputsConstTensorDeletedManyTimes
+	20 timesRepeat: [ self testRunGraphMulTwoInputsConstTensorDeleted ]

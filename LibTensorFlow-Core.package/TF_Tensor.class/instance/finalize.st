@@ -1,0 +1,3 @@
+release
+finalize
+	self delete

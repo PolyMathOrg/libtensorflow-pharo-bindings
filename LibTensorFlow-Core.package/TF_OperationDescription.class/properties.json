@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "TF_Structure",
+	"category" : "LibTensorFlow-Core",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "TF_OperationDescription",
+	"type" : "normal"
+}

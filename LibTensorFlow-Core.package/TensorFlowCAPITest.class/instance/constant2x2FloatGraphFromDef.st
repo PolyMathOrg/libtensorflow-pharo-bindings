@@ -1,0 +1,3 @@
+graphs
+constant2x2FloatGraphFromDef
+	^ TF_Graph fromString: self constant2x2FloatGraphDef

@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "",
+	"super" : "ExternalWordArray",
+	"category" : "LibTensorFlow-Core",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [
+		"OFFSET_TEMPLATE"
+	],
+	"instvars" : [ ],
+	"name" : "TF_OutputArray",
+	"type" : "normal"
+}

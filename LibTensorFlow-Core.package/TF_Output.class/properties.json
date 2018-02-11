@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "",
+	"super" : "TF_Structure",
+	"category" : "LibTensorFlow-Core",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [
+		"OFFSET_INDEX",
+		"OFFSET_OPERATION"
+	],
+	"instvars" : [ ],
+	"name" : "TF_Output",
+	"type" : "normal"
+}

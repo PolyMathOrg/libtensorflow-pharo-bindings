@@ -1,0 +1,3 @@
+converting
+allFloats
+	^ self allElements

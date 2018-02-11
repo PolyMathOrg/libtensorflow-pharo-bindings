@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "ExternalWordArray",
+	"category" : "LibTensorFlow-Core",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "TF_OperationPtrArray",
+	"type" : "normal"
+}

@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "",
+	"super" : "ExternalLibrary",
+	"category" : "LibTensorFlow-Core",
+	"classinstvars" : [
+		"current"
+	],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "TensorFlowCAPI",
+	"type" : "normal"
+}

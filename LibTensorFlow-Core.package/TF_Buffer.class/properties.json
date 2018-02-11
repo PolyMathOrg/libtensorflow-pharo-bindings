@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "SergeStinckwich 2/2/2018 18:07",
+	"super" : "TF_Structure",
+	"category" : "LibTensorFlow-Core",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [
+		"OFFSET_DATA",
+		"OFFSET_DEALLOCATOR",
+		"OFFSET_LENGTH"
+	],
+	"instvars" : [ ],
+	"name" : "TF_Buffer",
+	"type" : "normal"
+}
