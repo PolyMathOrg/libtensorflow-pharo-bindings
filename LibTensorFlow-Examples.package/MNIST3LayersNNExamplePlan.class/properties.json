@@ -1,0 +1,29 @@
+{
+	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "LibTensorFlow-Examples",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"session",
+		"graph",
+		"weights1",
+		"biases1",
+		"weights2",
+		"biases2",
+		"weights3",
+		"biases3",
+		"prediction",
+		"input",
+		"expectedLabel",
+		"loss",
+		"netInput",
+		"activation",
+		"hidden2",
+		"hidden1",
+		"learn"
+	],
+	"name" : "MNIST3LayersNNExamplePlan",
+	"type" : "normal"
+}

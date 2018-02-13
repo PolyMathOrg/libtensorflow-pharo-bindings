@@ -1,0 +1,31 @@
+{
+	"commentStamp" : "<historical>",
+	"super" : "Object",
+	"category" : "LibTensorFlow-Examples",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"graph",
+		"input",
+		"weights1",
+		"biases1",
+		"weights2",
+		"biases2",
+		"weights3",
+		"biases3",
+		"prediction",
+		"netInput",
+		"weights4",
+		"biases4",
+		"hidden1",
+		"hidden2",
+		"expectedLabel",
+		"loss",
+		"session",
+		"hidden3",
+		"learn"
+	],
+	"name" : "RegressionNNExample",
+	"type" : "normal"
+}

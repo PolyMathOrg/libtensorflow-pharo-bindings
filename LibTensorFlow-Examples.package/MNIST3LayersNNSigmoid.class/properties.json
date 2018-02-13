@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "<historical>",
+	"super" : "MNIST3LayersNNExamplePlan",
+	"category" : "LibTensorFlow-Examples",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "MNIST3LayersNNSigmoid",
+	"type" : "normal"
+}

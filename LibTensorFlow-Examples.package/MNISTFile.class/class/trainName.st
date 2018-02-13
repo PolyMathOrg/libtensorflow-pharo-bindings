@@ -1,0 +1,3 @@
+accessing
+trainName
+	^ self subclassResponsibility 

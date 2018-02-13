@@ -1,0 +1,3 @@
+accessing
+inputSize
+	^ 1

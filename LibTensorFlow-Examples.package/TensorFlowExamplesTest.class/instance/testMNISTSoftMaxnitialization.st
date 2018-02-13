@@ -1,0 +1,3 @@
+testing MNIST
+testMNISTSoftMaxnitialization
+	MNISTSoftMaxExamplePlan new.

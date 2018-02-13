@@ -1,0 +1,16 @@
+{
+	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "LibTensorFlow-Examples",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"graph",
+		"inputs",
+		"outputs",
+		"session"
+	],
+	"name" : "ExamplePlan",
+	"type" : "normal"
+}

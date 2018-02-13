@@ -1,0 +1,9 @@
+initialization
+initialize
+	self
+		initializeGraph;
+		initializeParameters;
+		initializeInferenceGraph;
+		initializeLossGraph;
+		initializeLearningGraph;
+		initializeSession.

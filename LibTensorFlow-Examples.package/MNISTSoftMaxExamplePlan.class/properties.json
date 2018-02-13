@@ -1,0 +1,24 @@
+{
+	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "LibTensorFlow-Examples",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"session",
+		"graph",
+		"weights",
+		"biases",
+		"prediction",
+		"netInput",
+		"input",
+		"loss",
+		"expectedLabel",
+		"learnWeights",
+		"learnBiases",
+		"activation"
+	],
+	"name" : "MNISTSoftMaxExamplePlan",
+	"type" : "normal"
+}

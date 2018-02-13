@@ -1,0 +1,3 @@
+accessing
+testName
+	^ self subclassResponsibility 

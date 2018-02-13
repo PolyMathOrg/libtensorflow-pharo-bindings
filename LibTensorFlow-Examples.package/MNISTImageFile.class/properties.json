@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "",
+	"super" : "MNISTFile",
+	"category" : "LibTensorFlow-Examples",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"rows",
+		"columns"
+	],
+	"name" : "MNISTImageFile",
+	"type" : "normal"
+}

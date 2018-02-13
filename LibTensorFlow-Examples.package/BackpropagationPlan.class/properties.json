@@ -1,0 +1,18 @@
+{
+	"commentStamp" : "",
+	"super" : "ExamplePlan",
+	"category" : "LibTensorFlow-Examples",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"weights",
+		"activation",
+		"target",
+		"learn",
+		"delta",
+		"lastDelta"
+	],
+	"name" : "BackpropagationPlan",
+	"type" : "normal"
+}

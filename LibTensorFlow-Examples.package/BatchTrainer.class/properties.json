@@ -1,0 +1,18 @@
+{
+	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "LibTensorFlow-Examples",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"plan",
+		"batchSize",
+		"imageSet",
+		"labelSet",
+		"imageTesting",
+		"labelTesting"
+	],
+	"name" : "BatchTrainer",
+	"type" : "normal"
+}

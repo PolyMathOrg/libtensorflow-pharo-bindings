@@ -1,0 +1,3 @@
+accessing
+outputSize
+	^ 10

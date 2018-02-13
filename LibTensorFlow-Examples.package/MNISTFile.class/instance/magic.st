@@ -1,0 +1,3 @@
+accessing
+magic
+	^ magic

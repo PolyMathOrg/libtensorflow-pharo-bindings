@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "",
+	"super" : "TestCase",
+	"category" : "LibTensorFlow-Examples",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"images",
+		"labels"
+	],
+	"name" : "TensorFlowExamplesSlowTest",
+	"type" : "normal"
+}

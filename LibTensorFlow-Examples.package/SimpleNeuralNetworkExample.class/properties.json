@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "LibTensorFlow-Examples",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"forward",
+		"backward",
+		"weights"
+	],
+	"name" : "SimpleNeuralNetworkExample",
+	"type" : "normal"
+}

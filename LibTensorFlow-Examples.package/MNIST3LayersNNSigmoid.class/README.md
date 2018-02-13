@@ -1,0 +1,1 @@
+self new graph writeDefToFileNamed: 'graph.pb'

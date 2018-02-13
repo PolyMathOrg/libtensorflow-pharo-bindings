@@ -1,0 +1,3 @@
+initialization
+initializeWithOperations
+	plan := ExampleOLSPlan new initializeGraphWithOperations initializeSession
