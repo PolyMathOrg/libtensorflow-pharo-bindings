@@ -1,3 +1,3 @@
 instance creation
 asExternalTypeOn: aFFICallout 
-	^ FFIExternalObjectType objectClass: self
+	^ FFIOpaqueObjectType objectClass: self

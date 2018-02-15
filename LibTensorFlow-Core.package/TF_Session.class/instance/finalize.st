@@ -2,7 +2,7 @@ release
 finalize
 	[self delete] on: Error do: [
 		Transcript
-			newLine;
+			cr;
 			print: 'Error finalizing ';
 			show: self
 	].
