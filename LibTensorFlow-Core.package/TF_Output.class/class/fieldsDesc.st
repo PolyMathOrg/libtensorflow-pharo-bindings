@@ -7,5 +7,5 @@ fieldsDesc
 	} TF_Output;"
 	^ #(
 		TF_Operation * operation;
-		int index;
+		long index;
 		)

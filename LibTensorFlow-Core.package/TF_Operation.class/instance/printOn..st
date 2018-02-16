@@ -1,9 +1,9 @@
 printing
-printOn: strm
-	super printOn: strm.
-	handle isNull ifFalse: [
-		strm
-			space;
-			print: self type;
-			space;
-			print: self name]
+printOn: stream
+	super printOn: stream.
+	handle isNull
+		ifFalse: [ stream
+				space;
+				print: self type;
+				space;
+				print: self name ]
