@@ -8,4 +8,3 @@ at: attribute putString: aString
 		toString: aString
 		size: aString size.
 	status check
-	

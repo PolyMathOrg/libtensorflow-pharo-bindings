@@ -6,11 +6,8 @@ testAllInitializers
 	graph variable: 'var1' initialValue: pisTensor.
 	graph variable: 'var2' initialValue: pisTensor.
 	graph variable: 'var3' initialValue: pisTensor.
-
 	initializers := graph allInitializers.
-	
-	self assert: initializers size = 3.
+	self assert: initializers size equals: 3.
 	self assert: 'var1_initializer' equals: initializers first name.
 	self assert: 'var2_initializer' equals: initializers second name.
-	self assert: 'var3_initializer' equals: initializers third name.
-	
+	self assert: 'var3_initializer' equals: initializers third name

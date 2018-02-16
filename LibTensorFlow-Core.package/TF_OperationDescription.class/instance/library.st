@@ -1,0 +1,3 @@
+attributes
+library
+	^ TensorFlowCAPI current

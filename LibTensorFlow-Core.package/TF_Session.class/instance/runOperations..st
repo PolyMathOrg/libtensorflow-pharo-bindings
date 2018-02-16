@@ -3,7 +3,6 @@ runOperations: anArrayOfTF_Operations
 	| status operations |
 	status := TF_Status create.
 	operations := TF_OperationPtrArray externalFromArray: anArrayOfTF_Operations.
-	self halt.
 	self library
 		runSession: self
 		options: nil

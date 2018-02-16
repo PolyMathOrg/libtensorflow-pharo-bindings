@@ -1,3 +1,3 @@
 converting
-asExternalTypeOn: aFFICallout 
-	^ FFIExternalObjectType objectClass: self
+asExternalTypeOn: generator
+	^ FFIOpaqueObjectType objectClass: self

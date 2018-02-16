@@ -4,5 +4,5 @@ description: aTF_OperationDescription addInput: aTF_Output
 
 	^ self
 		ffiCall:
-			#(void TF_AddInput #(TF_OperationDescription aTF_OperationDescription , TF_Output aTF_Output))
+			#(void TF_AddInput #(TF_OperationDescription * aTF_OperationDescription , TF_Output aTF_Output))
 		module: 'libtensorflow.dylib'
