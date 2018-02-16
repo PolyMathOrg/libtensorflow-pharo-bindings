@@ -1,6 +1,6 @@
 {
 	"commentStamp" : "SergeStinckwich 2/2/2018 18:01",
-	"super" : "TF_Structure",
+	"super" : "FFIOpaqueObject",
 	"category" : "LibTensorFlow-Core",
 	"classinstvars" : [ ],
 	"pools" : [ ],

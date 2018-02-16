@@ -5,8 +5,8 @@ allocateTensorType: anInteger shape: aLongLongArray rank: dimCount length: len
 	^ self
 		ffiCall: #(
 		TF_Tensor * TF_AllocateTensor #(
-			uint64 anInteger,
-			uint64 * aLongLongArray,
-			uint64 dimCount,
-			uint64 len))
+			int64 anInteger,
+			Int64Array * aLongLongArray,
+			int64 dimCount,
+			size_t len))
 		module: 'libtensorflow.dylib'

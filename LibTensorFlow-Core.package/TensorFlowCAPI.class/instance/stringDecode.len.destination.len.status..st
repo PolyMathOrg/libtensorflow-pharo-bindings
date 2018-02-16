@@ -4,5 +4,5 @@ stringDecode: srcString len: srcLen destination: dstPointer len: dstLenPointer s
 
 	^ self
 		ffiCall:
-			#(ulonglong TF_StringDecode #(String srcString , ulonglong srcLen , String dstPointer , ulonglong * dstLenPointer, TF_Status status))
+			#(ulonglong TF_StringDecode #(String srcString , ulonglong srcLen , String dstPointer , ulonglong * dstLenPointer, TF_Status * status))
 		module: 'libtensorflow.dylib'

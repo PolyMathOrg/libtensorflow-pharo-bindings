@@ -4,5 +4,5 @@ stringEncode: srcString len: srcLen destination: dstString len: dstLen status: s
 
 	^ self
 		ffiCall:
-			#(ulonglong TF_StringEncode #(String srcString , ulonglong srcLen , String dstString , ulonglong dstLen, TF_Status status))
+			#(ulonglong TF_StringEncode #(String srcString , ulonglong srcLen , String dstString , ulonglong dstLen, TF_Status * status))
 		module: 'libtensorflow.dylib'

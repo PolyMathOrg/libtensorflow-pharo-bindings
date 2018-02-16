@@ -6,11 +6,8 @@ testAllVariables
 	var1 := graph variable: 'var1' initialValue: pisTensor.
 	var2 := graph variable: 'var2' initialValue: pisTensor.
 	var3 := graph variable: 'var3' initialValue: pisTensor.
-
 	vars := graph allVariables.
-	
-	self assert: vars size = 3.
-	self assert: vars first = var1.
-	self assert: vars second = var2.
-	self assert: vars third = var3.
-	
+	self assert: vars size equals: 3.
+	self assert: vars first equals: var1.
+	self assert: vars second equals: var2.
+	self assert: vars third equals: var3
