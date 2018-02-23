@@ -5,5 +5,5 @@ sessionOptions: aTF_SessionOptions setConfig: aString configSize: anInteger stat
 	"<cdecl: void 'TF_SetConfig' (TF_SessionOptions* void* ulong TF_Status*)>"
 
 	^ self
-		ffiCall: #(void TF_SetConfig #(TF_SessionOptions aTF_SessionOptions , String aString , size_t anInteger , TF_Status aTF_Status))
+		ffiCall: #(void TF_SetConfig #(TF_SessionOptions aTF_SessionOptions , String aString , size_t anInteger , TF_Status * aTF_Status))
 		module: 'libtensorflow.dylib'

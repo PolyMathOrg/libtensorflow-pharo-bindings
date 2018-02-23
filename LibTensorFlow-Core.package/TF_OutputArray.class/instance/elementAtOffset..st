@@ -1,4 +1,3 @@
 accessing
 elementAtOffset: byteOffset
-	^self elementClass fromHandle: (handle + (byteOffset - 1))
-	
+	^ self elementClass fromHandle: handle + (byteOffset - 1)
