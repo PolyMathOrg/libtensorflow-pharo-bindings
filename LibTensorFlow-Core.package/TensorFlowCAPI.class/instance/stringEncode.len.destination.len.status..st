@@ -1,6 +1,6 @@
 strings
 stringEncode: srcString len: srcLen destination: dstString len: dstLen status: status
-	"<cdecl: ulonglong 'TF_StringEncode' (char* ulonglong char* ulonglong TF_Status)>"
+	"<cdecl: ulonglong 'TF_StringEncode' (char* ulonglong char* ulonglong TF_Status*)>"
 
 	^ self
 		ffiCall:
