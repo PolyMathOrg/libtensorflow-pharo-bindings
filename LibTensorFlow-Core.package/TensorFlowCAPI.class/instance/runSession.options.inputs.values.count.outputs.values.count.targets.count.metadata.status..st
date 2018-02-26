@@ -22,5 +22,5 @@ runSession: aTF_Session
 		TF_Status*)>"
 		
 		^ self
-		ffiCall: #(void TF_SessionRun #(TF_Session * aTF_Session, TF_Buffer * opsTF_Buffer, TF_OutputArray * inTF_OutputArray, TF_TensorPtrArray * inTF_TensorArray, long inCount, TF_OutputArray * outTF_OutputArray, TF_TensorPtrArray * outTF_TensorArrayPtr, long outCount, TF_OperationPtrArray * aTF_OperationArray, long targetCount, TF_Buffer  * metaTF_Buffer, TF_Status * aTF_Status))
+		ffiCall: #(void TF_SessionRun #(TF_Session * aTF_Session, TF_Buffer * opsTF_Buffer, TF_OutputArray * inTF_OutputArray, TF_TensorPtrArray * inTF_TensorArray, long inCount, TF_OutputArray * outTF_OutputArray, TF_TensorPtrArray * outTF_TensorArrayPtr, long outCount, TF_OperationPtrArray * aTF_OperationArray, long targetCount, TF_Buffer * metaTF_Buffer, TF_Status * aTF_Status))
 		module: 'libtensorflow.dylib'

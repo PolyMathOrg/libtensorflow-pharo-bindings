@@ -4,6 +4,7 @@ testGraphZeros
 	graph := TF_Graph create.
 	zeros := graph zerosShaped: #(100 100 10).
 	session := TF_Session on: graph.
+	self halt.
 	result := session runOutput: (zeros output: 0).
 	values := result allFloats.
 	self assert: #(100 100 10) equals: result shape.

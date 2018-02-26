@@ -1,6 +1,6 @@
 printing
 printOn: aStream
-	super printOn: aStream.
+	"super printOn: aStream."
 	aStream
 		space;
 		print: handle

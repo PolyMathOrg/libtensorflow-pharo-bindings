@@ -1,3 +1,3 @@
 testing-ols
 testOLS
-	self testOLS: OLSExample new.
+	self testOLS: OLSExample new
