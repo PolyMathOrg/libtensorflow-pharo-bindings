@@ -1,3 +1,3 @@
 accessing
 data
-	^self library tensorData: self.
+	^ self library tensorData: self

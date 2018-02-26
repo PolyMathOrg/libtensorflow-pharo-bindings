@@ -1,3 +1,3 @@
 accessing
 type
-	^self library tensorType: self.
+	^ self library tensorType: self

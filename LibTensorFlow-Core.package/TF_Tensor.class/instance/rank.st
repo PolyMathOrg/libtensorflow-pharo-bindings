@@ -1,3 +1,3 @@
 accessing
 rank
-	^self library tensorRank: self.
+	^ self library tensorRank: self

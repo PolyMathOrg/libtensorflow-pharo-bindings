@@ -8,4 +8,4 @@ at: attribute putShape: anIntegerArray
 		set: attribute asAsciiZ
 		toShape: value
 		size: anIntegerArray size.
-	status check.
+	status check
