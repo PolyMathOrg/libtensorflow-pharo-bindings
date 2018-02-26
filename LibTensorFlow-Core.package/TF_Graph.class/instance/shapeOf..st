@@ -4,7 +4,6 @@ shapeOf: aTF_OutputOrInput
 	size := self rankOf: aTF_OutputOrInput.
 	value := Int64Array externalNew: size.
 	status := TF_Status create.
-	
 	self library
 		graph: self
 		getShapeOf: aTF_OutputOrInput
@@ -12,6 +11,5 @@ shapeOf: aTF_OutputOrInput
 		size: size
 		status: status.
 	status check.
-	
-	answer := (1 to: size) collect: [:i | value at: i].
+	answer := (1 to: size) collect: [ :i | value at: i ].
 	^ answer
