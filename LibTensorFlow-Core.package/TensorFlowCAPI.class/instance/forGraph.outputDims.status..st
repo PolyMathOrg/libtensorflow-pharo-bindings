@@ -4,5 +4,5 @@ forGraph: aTF_Graph outputDims: aTF_Output status: aTF_Status
 
 	^ self
 		ffiCall:
-			#(ulonglong * TF_GraphGetTensorNumDims #(TF_Graph * aTF_Graph , TF_Output aTF_Output , TF_Status * aTF_Status))
+			#(ulonglong TF_GraphGetTensorNumDims #(TF_Graph * aTF_Graph , TF_Output aTF_Output , TF_Status * aTF_Status))
 		module: 'libtensorflow.dylib'

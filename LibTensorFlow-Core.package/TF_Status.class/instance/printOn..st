@@ -1,9 +1,9 @@
 printing
-printOn: strm
-	super printOn: strm.
+printOn: stream
+	super printOn: stream.
 	self isNull
-		ifFalse: [ strm
+		ifFalse: [ stream
 				space;
-				print: self code;
+				print: self codeText;
 				space;
 				print: self message ]

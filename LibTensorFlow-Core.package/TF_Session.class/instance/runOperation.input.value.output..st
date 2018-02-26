@@ -5,7 +5,10 @@ runOperation: aTF_Operation input: inTF_OutputOrInput value: inTF_Tensor output:
 	invalues := Array with: inTF_Tensor.
 	outputs := Array with: outTF_Output.
 	operations := Array with: aTF_Operation.
-	
-	outvalues := self runOperations: operations inputs: inputs values: invalues outputs: outputs.
+	outvalues := self
+		runOperations: operations
+		inputs: inputs
+		values: invalues
+		outputs: outputs.
 	tensor := outvalues first.
 	^ tensor
