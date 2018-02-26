@@ -4,7 +4,12 @@
 	"category" : "LibTensorFlow-Core",
 	"classinstvars" : [ ],
 	"pools" : [ ],
-	"classvars" : [ ],
+	"classvars" : [
+		"OFFSET_LISTSIZE",
+		"OFFSET_TOTALSIZE",
+		"OFFSET__ISLIST",
+		"OFFSET__TYPE"
+	],
 	"instvars" : [ ],
 	"name" : "TF_AttrMetadata",
 	"type" : "normal"

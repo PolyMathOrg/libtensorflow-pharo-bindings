@@ -1,4 +1,4 @@
-accessing
+accessing structure variables
 totalSize
-	"This method was automatically generated. See TF_AttrMetadata class>>fields."
-	^handle signedLongLongAt: 25
+	"This method was automatically generated"
+	^handle signedLongLongAt: OFFSET_TOTALSIZE
