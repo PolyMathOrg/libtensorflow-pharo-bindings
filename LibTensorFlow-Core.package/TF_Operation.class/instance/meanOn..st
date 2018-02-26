@@ -1,3 +1,3 @@
 ops binary
-meanOn:  shapeTensorOrOperation
+meanOn: shapeTensorOrOperation
 	^ self binaryOp: 'Mean' with: shapeTensorOrOperation
