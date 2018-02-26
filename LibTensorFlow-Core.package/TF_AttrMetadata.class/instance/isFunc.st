@@ -1,3 +1,3 @@
 types
 isFunc
-	^ self type = 8
+	^ self _type = 8

@@ -1,3 +1,3 @@
 types
 isString
-	^ self type = 0
+	^ self _type = 0

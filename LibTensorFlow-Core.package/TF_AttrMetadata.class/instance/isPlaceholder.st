@@ -1,3 +1,3 @@
 types
 isPlaceholder
-	^ self type = 7
+	^ self _type = 7

@@ -1,3 +1,3 @@
 types
 isInt
-	^ self type = 1
+	^ self _type = 1

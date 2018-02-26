@@ -1,3 +1,3 @@
 types
 isTensor
-	^ self type = 6
+	^ self _type = 6

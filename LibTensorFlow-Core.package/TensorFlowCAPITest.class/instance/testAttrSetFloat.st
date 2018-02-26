@@ -8,10 +8,9 @@ testAttrSetFloat
 	op := graph
 		newOperation: 'FakeQuantWithMinMaxArgs'
 		named: 'out'
-		described: [:description |
+		described: [ :description | 
 			description at: 'min' putFloat: min.
 			description at: 'max' putFloat: max.
-			description addInput: (in output: 0)].
-	
+			description addInput: (in output: 0) ].
 	self assert: ((op floatAt: 'min') closeTo: min).
-	self assert: ((op floatAt: 'max') closeTo: max).
+	self assert: ((op floatAt: 'max') closeTo: max)

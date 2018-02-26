@@ -1,3 +1,3 @@
 types
 isFloat
-	^ self type = 2
+	^ self _type = 2
