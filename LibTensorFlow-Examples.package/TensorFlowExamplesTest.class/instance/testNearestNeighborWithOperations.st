@@ -1,5 +1,5 @@
 testing-NearesNeighbor
-testNearesNeighborWithOperations
+testNearestNeighborWithOperations
 	| plan |
 	plan := ExampleNearestNeighborPlan new initializeGraphWithOperations initializeSession.
-	self testNearesNeighbor: plan.
+	self testNearestNeighbor: plan

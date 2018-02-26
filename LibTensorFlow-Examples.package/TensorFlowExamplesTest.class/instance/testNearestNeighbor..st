@@ -1,5 +1,5 @@
 testing-NearesNeighbor
-testNearesNeighbor: plan
+testNearestNeighbor: plan
 	| first second third closest references tensorReference tensors predictor |
 	first := #(0 0 0 0 0).
 	second := #(1 1 3 4 2).

@@ -1,5 +1,5 @@
 testing-NearesNeighbor
-testNearesNeighbor
+testNearestNeighbor
 	| plan |
 	plan := ExampleNearestNeighborPlan new.
-	self testNearesNeighbor: plan.
+	self testNearesNeighbor: plan
