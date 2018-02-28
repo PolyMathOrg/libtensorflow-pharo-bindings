@@ -1,5 +1,5 @@
 accessing
 at: index
 	"This method was automatically generated. See PointerArray class>>fields."
-	^ self elementAtOffset: index  - 1 * self class byteSize + 1
+	^ self elementAtOffset: index  - 1 * self elementClass byteSize + 1
 	
