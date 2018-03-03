@@ -5,13 +5,13 @@ testArrayAtPutFor: anExternalWordArraySubclass elementSample: anObject
 	array := anExternalWordArraySubclass externalNew: 4.
 	one := array first.
 	array first: anObject.
-	self assert: array first equals: anObject.
+	self assert: array first getHandle equals: anObject getHandle.
 	self assert: (array first isKindOf: anObject class).
 	array first: one.
-	self assert: array first equals: one.
+	self assert: array first getHandle equals: one getHandle.
 	1 to: size do: [ :index | 
 		array at: index put: anObject.
-		self assert: (array at: index) equals: anObject.
+		self assert: (array at: index) getHandle equals: anObject getHandle.
 		self assert: ((array at: index) isKindOf: anObject class).
 		array at: index put: one.
-		self assert: (array at: index) equals: one ]
+		self assert: (array at: index) getHandle equals: one getHandle]
