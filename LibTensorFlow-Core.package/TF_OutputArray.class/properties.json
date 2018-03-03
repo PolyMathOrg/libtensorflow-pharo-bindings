@@ -1,12 +1,10 @@
 {
-	"commentStamp" : "",
+	"commentStamp" : "SergeStinckwich 3/3/2018 12:36",
 	"super" : "ExternalWordArray",
 	"category" : "LibTensorFlow-Core",
 	"classinstvars" : [ ],
 	"pools" : [ ],
-	"classvars" : [
-		"OFFSET_TEMPLATE"
-	],
+	"classvars" : [ ],
 	"instvars" : [ ],
 	"name" : "TF_OutputArray",
 	"type" : "normal"

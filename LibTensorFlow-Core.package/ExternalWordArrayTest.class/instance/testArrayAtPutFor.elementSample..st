@@ -2,7 +2,7 @@ testing
 testArrayAtPutFor: anExternalWordArraySubclass elementSample: anObject
 	| array size one |
 	size := 4.
-	array := anExternalWordArraySubclass new: 4.
+	array := anExternalWordArraySubclass externalNew: 4.
 	one := array first.
 	array first: anObject.
 	self assert: array first equals: anObject.

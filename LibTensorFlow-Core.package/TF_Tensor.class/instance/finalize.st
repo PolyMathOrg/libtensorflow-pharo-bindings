@@ -1,3 +1,3 @@
-release
+finalization
 finalize
 	self delete
