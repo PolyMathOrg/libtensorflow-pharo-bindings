@@ -12,7 +12,7 @@ testOutputArrayAtPut
 	array first: one.
 	self deny: one getHandle = other getHandle.
 	self assert: one index equals: other index.
-	self assert: one operation equals: other operation.
+	self assert: one operation getHandle equals: other operation getHandle.
 	operation := TF_Operation
 		fromHandle: ExternalAddress new + 16r12345678.
 	one index: 16rF0F1F2F3F4F5F6F7.
@@ -22,4 +22,4 @@ testOutputArrayAtPut
 		array at: index put: one.
 		self deny: one getHandle = other getHandle.
 		self assert: one index equals: other index.
-		self assert: one operation equals: other operation ]
+		self assert: one operation getHandle equals: other operation getHandle ]
