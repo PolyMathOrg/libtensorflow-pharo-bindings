@@ -1,9 +1,9 @@
 private
-download: name
-		| url response content file |
-		url := 'http://yann.lecun.com/exdb/mnist/', name.
-		response := HTTPClient httpGet: url.
+download: aName	
+	| url response content file |
+		url := 'http://yann.lecun.com/exdb/mnist/', aName.
+		response := ZnClient new get: url.
 		content := response content asByteArray.
-		file := ('dataset/', name) asFileEntry.
+		file := ('dataset/', name) asFileReference.
 		file < content.
 		^ file
