@@ -4,4 +4,4 @@ testWriteDefTo
 	graph := self constantInt64GraphFromDef.
 	stream := WriteStream on: String new.
 	graph writeDefTo: stream.
-	self assert: self constantInt64GraphDef size equals: stream contents size
+	self assert: stream contents size equals: self constantInt64GraphDef size

@@ -6,4 +6,4 @@ testWriteDefToFileNamed
 	graph writeDefToFileNamed: filename.
 	filedata := filename asFileReference readStream upToEnd.
 	filename asFileReference delete.
-	self assert: self constantInt64GraphDef size equals: filedata size
+	self assert: filedata size equals: self constantInt64GraphDef size
