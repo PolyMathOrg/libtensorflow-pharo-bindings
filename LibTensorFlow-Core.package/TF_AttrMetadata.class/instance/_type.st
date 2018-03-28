@@ -1,4 +1,4 @@
 accessing structure variables
 _type
 	"This method was automatically generated"
-	^handle unsignedLongLongAt: OFFSET__TYPE
+	^handle signedLongAt: OFFSET__TYPE

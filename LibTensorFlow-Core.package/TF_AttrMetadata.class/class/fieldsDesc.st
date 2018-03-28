@@ -4,7 +4,7 @@ fieldsDesc
 
 	^ #(
 	byte _isList; 
-	longlong listSize;
-	ulonglong _type; 
-	longlong totalSize;
+	int64 listSize;
+	int _type; 
+	int64 totalSize;
 	)
