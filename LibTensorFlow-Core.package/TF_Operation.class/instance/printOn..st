@@ -1,9 +1,9 @@
 printing
 printOn: stream
 	super printOn: stream.
-	"handle isNull
+	handle isNull
 		ifFalse: [ stream
 				space;
 				print: self type;
 				space;
-				print: self name ]"
+				print: self name ]
