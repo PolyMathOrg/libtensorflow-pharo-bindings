@@ -1,3 +1,3 @@
 converting
 asNumbers
-	^ self arrayFromStream: self asStream shape: self shape
+	^ self arrayFromStream: self asStream reset shape: self shape
