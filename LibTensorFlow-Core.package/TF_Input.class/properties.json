@@ -1,5 +1,5 @@
 {
-	"commentStamp" : "",
+	"commentStamp" : "SergeStinckwiich 4/13/2018 15:36",
 	"super" : "TF_Output",
 	"category" : "LibTensorFlow-Core",
 	"classinstvars" : [ ],

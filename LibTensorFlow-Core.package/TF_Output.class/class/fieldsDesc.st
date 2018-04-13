@@ -9,4 +9,4 @@ fieldsDesc
 
 	^ #(
 		TF_Operation * operation ;
-		int index ;)
+		longlong index ;)
