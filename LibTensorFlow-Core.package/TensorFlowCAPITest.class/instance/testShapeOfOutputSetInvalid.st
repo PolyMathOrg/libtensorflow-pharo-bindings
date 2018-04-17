@@ -11,4 +11,4 @@ testShapeOfOutputSetInvalid
 	
 	self
 		should: [graph shapeOf: output set: #(1 2 3)] 
-		raiseError: 'INVALID_ARGUMENT: Dimension 0 in both shapes must be equal, but are 2 and 1'.
+		raiseError: 'INVALID_ARGUMENT: Dimension 0 in both shapes must be equal, but are 2 and 1. Shapes are [2,3,1] and [1,2,3].'.
