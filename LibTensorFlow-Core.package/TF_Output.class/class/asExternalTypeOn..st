@@ -1,3 +1,3 @@
 field definition
 asExternalTypeOn: aFFICallout 
-	^ FFIExternalObjectType objectClass: self
+	^ FFIExternalStructureType objectClass: self
