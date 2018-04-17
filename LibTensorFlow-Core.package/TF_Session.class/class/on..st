@@ -5,5 +5,4 @@ on: aTF_Graph
 	status := TF_Status create.
 	answer := TensorFlowCAPI current newSession: aTF_Graph options: options status: status.
 	status check.
-	answer useFinalization.
-	^ answer
+	^ answer useFinalization
