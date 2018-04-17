@@ -11,4 +11,4 @@ stringAt: nameString
 		size: metadata totalSize 
 		status: status.
 	status check.
-	^ (value upTo: 0) asString
+	^ value asString
