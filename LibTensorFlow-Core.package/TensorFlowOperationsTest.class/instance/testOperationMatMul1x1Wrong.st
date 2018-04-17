@@ -10,10 +10,5 @@ testOperationMatMul1x1Wrong
 	constA := graph const: 'a' value: a.
 	constB := graph const: 'b' value: b.
 
-	output := constA * constB.
-
-	session := TF_Session on: graph.
-	self
-		should: [session runOutput: (output output: 0)]
-		raiseError: 'INVALID_ARGUMENT: In[0] is not a matrix
-	 [[Node: MatMul_2 = MatMul[T=DT_FLOAT, _class=[], transpose_a=false, transpose_b=false, _device="/job:localhost/replica:0/task:0/cpu:0"](a, b)]]'
+	self should: [output := constA * constB]
+	raiseError:'INVALID_ARGUMENT: Shape must be rank 2 but is rank 1 for ''MatMul_2'' (op: ''MatMul'') with input shapes: [1], [1].'
