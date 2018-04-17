@@ -16,11 +16,11 @@ testGraphVariableFromTruncatedNormalStddev
 	self assert: result1 shape equals: #(100 100 10).
 	
 	values1 := result1 allFloats.
-	std := values1 standardDeviation.
+	std := self standardDeviation: values1.
 	self assert: values1 size equals: 100*100*10.	
 	self assert: twoSigma - (values1 min abs)  < 0.1.
 	self assert: twoSigma - values1 max < 0.1.
-	self assert: values1 mean abs < (0.01 * std).	
+	self assert: (self mean:values1 ) abs < (0.01 * std).	
 	
 	self assert: result1 shape equals: result2 shape.
 	values2 := result2 allFloats.

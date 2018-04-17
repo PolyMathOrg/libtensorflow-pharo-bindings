@@ -10,12 +10,12 @@ testGraphTruncatedNormal
 	
 	values := result allFloats.
 	theoreticalDecile := -1.1840324666939051.
-	std := values standardDeviation.
+	std := self standardDeviation:values.
 	self assert: result shape equals: #(100 100 10).
 	self assert: values size equals: 100*100*10.
 	self assert: values min + 2 < 0.01.
 	self assert: 2 - values max < 0.01.
-	self assert: values mean abs < (0.01*std).
+	self assert: (self mean: values)  abs < (0.01*std).
 	expected :=  { theoreticalDecile. 
 							theoreticalDecile negated}.
 							
