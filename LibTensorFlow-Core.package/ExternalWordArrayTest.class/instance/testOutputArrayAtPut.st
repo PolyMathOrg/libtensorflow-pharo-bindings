@@ -6,7 +6,7 @@ testOutputArrayAtPut
 	operation := TF_Operation
 		fromHandle: ExternalAddress new + 16rF1F2F3F4.
 	one := TF_Output new.
-	one index: 16rF1F2F3F4F5F6F7F8.
+	one index: 16rF1F2.
 	one operation: operation.
 	other := array first.
 	array first: one.
@@ -15,7 +15,7 @@ testOutputArrayAtPut
 	self assert: one operation getHandle equals: other operation getHandle.
 	operation := TF_Operation
 		fromHandle: ExternalAddress new + 16r12345678.
-	one index: 16rF0F1F2F3F4F5F6F7.
+	one index: 16rF0F1.
 	one operation: operation.
 	1 to: size do: [ :index | 
 		other := array at: index.
