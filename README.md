@@ -11,4 +11,4 @@ You will need a 64 bits Pharo VM in order to run the code. The code has only be 
 On MacOS, you can do : 
 ```brew install tensorflow```
 - Use Iceberg to load the code of this repository
-- modify ```TensorFlowCAPI class>modulename```to put the path to where Tensorflow libraries are located on your computer.
+- modify ```TensorFlowCAPI class>>modulename```to put the path to where Tensorflow libraries are located on your computer.
