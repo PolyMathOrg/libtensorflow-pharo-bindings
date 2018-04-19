@@ -24,4 +24,4 @@ TF_Status*);"
 		
 		^ self
 		ffiCall: #(void TF_SessionRun #(TF_Session * aTF_Session, TF_Buffer * opsTF_Buffer, TF_OutputArray * inTF_OutputArray, TF_TensorPtrArray * inTF_TensorArray, int inCount, TF_OutputArray * outTF_OutputArray, TF_TensorPtrArray * outTF_TensorArrayPtr, int outCount, TF_OperationPtrArray * aTF_OperationArray, int targetCount, TF_Buffer * metaTF_Buffer, TF_Status * aTF_Status))
-		module: 'libtensorflow.dylib'
+		module: TensorFlowCAPI

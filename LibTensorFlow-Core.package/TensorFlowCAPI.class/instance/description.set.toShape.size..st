@@ -4,4 +4,4 @@ description: aTF_OperationDescription set: aString toShape: anInt64Array size: s
                                            const char* attr_name, const int64_t* dims, int num_dims);"
 	
 	
-	^ self ffiCall: #(void TF_SetAttrShape #(TF_OperationDescription * aTF_OperationDescription, String aString, Int64Array * anInt64Array, int size)) module: 'libtensorflow.dylib'
+	^ self ffiCall: #(void TF_SetAttrShape #(TF_OperationDescription * aTF_OperationDescription, String aString, Int64Array * anInt64Array, int size)) module: TensorFlowCAPI

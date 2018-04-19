@@ -4,4 +4,4 @@ newBufferFromString: aString size: anInteger
 
 	^ self
 		ffiCall: #(TF_Buffer * TF_NewBufferFromString #(String aString , size_t anInteger))
-		module: 'libtensorflow.dylib'
+		module: TensorFlowCAPI

@@ -4,4 +4,4 @@ sessionOptions: aTF_SessionOptions setTarget: aString
 
 	^ self
 		ffiCall: #(void TF_SetTarget #(TF_SessionOptions * aTF_SessionOptions , String aString))
-		module: 'libtensorflow.dylib'
+		module: TensorFlowCAPI

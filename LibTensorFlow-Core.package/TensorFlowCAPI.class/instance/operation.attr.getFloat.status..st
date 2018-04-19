@@ -5,4 +5,4 @@ operation: aTF_Operation attr: nameZString getFloat: valueFloatPtr status: statu
 	^ self
 		ffiCall:
 			#(void TF_OperationGetAttrFloat #(TF_Operation * aTF_Operation , String nameZString , float * valueFloatPtr , TF_Status * status))
-		module: 'libtensorflow.dylib'
+		module: TensorFlowCAPI

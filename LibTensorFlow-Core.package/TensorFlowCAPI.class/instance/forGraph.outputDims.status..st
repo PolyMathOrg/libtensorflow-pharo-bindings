@@ -13,4 +13,4 @@ Returns an error into `status` if:
 	^ self
 		ffiCall:
 			#(int TF_GraphGetTensorNumDims #(TF_Graph * aTF_Graph , TF_Output aTF_Output , TF_Status * aTF_Status))
-		module: 'libtensorflow.dylib'
+		module: TensorFlowCAPI

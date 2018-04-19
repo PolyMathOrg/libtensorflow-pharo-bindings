@@ -5,4 +5,4 @@ finishOperationAsVoid: aTF_OperationDescription status: aTF_Status
 	^ self
 		ffiCall:
 			#(void * TF_FinishOperation #(TF_OperationDescription * aTF_OperationDescription , TF_Status * aTF_Status))
-		module: 'libtensorflow.dylib'
+		module: TensorFlowCAPI

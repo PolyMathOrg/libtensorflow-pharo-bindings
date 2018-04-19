@@ -5,4 +5,4 @@ description: aTF_OperationDescription setDevice: aString
 	^ self
 		ffiCall:
 			#(void TF_SetDevice #(TF_OperationDescription * aTF_OperationDescription , String aString))
-		module: 'libtensorflow.dylib'
+		module: TensorFlowCAPI

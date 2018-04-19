@@ -5,4 +5,4 @@ newOperationDescriptionOn: graph type: type named: aName
 	^ self
 		ffiCall:
 			#(TF_OperationDescription * TF_NewOperation #(TF_Graph * graph , String type , String aName))
-		module: 'libtensorflow.dylib'
+		module: TensorFlowCAPI

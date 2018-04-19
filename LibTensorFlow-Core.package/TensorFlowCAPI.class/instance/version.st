@@ -5,4 +5,4 @@ version
 
 	"<cdecl: char* 'TF_Version' (void)>"
 
-	^ self ffiCall: #(String TF_Version #()) module: 'libtensorflow.dylib'
+	^ self ffiCall: #(String TF_Version #()) module: TensorFlowCAPI

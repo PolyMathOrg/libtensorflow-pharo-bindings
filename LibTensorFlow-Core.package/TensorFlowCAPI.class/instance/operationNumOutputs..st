@@ -1,7 +1,7 @@
 operation
 operationNumOutputs: aTF_Operation
-	"<cdecl: long 'TF_OperationNumOutputs' (TF_Operation*)>"
+	"TF_CAPI_EXPORT extern int TF_OperationNumOutputs(TF_Operation* oper)"
 
 	^ self
-		ffiCall: #(long TF_OperationNumOutputs #(TF_Operation * aTF_Operation))
-		module: 'libtensorflow.dylib'
+		ffiCall: #(int TF_OperationNumOutputs #(TF_Operation * aTF_Operation))
+		module: TensorFlowCAPI

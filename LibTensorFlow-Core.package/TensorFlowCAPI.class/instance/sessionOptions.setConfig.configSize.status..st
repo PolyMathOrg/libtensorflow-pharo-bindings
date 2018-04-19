@@ -8,4 +8,4 @@ sessionOptions: aTF_SessionOptions setConfig: aString configSize: anInteger stat
 
 	^ self
 		ffiCall: #(void TF_SetConfig #(TF_SessionOptions * aTF_SessionOptions , String aString , size_t anInteger , TF_Status * aTF_Status))
-		module: 'libtensorflow.dylib'
+		module: TensorFlowCAPI

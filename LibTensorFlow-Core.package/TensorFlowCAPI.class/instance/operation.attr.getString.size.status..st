@@ -8,4 +8,4 @@ operation: aTF_Operation attr: nameZString getString: valueString size: maxSize 
 
 	^ self
 		ffiCall: #(void TF_OperationGetAttrString #(TF_Operation * aTF_Operation , String nameZString , void * valueString , size_t maxSize , TF_Status * status))
-		module: 'libtensorflow.dylib'
+		module: TensorFlowCAPI

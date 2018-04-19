@@ -6,4 +6,4 @@ description: aTF_OperationDescription addInputs: aTF_OutputArray size: anInteger
 	^ self
 		ffiCall:
 			#(void TF_AddInputList #(TF_OperationDescription * aTF_OperationDescription , TF_OutputArray * aTF_OutputArray , int anInteger))
-		module: 'libtensorflow.dylib'
+		module: TensorFlowCAPI

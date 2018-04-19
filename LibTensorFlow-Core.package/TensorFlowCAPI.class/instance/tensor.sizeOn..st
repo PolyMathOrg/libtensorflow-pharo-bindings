@@ -4,4 +4,4 @@ tensor: aTF_Tensor sizeOn: dimension
 	
 	^ self
 		ffiCall: #(int64 TF_Dim #(TF_Tensor * aTF_Tensor , int dimension))
-		module: 'libtensorflow.dylib'
+		module: TensorFlowCAPI

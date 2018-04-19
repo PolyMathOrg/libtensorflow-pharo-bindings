@@ -4,4 +4,4 @@ tensorRank: aTF_Tensor
 
 	^ self
 		ffiCall: #(int TF_NumDims #(TF_Tensor * aTF_Tensor))
-		module: 'libtensorflow.dylib'
+		module: TensorFlowCAPI

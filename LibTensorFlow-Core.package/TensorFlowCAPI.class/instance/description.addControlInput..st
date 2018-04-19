@@ -5,4 +5,4 @@ description: aTF_OperationDescription addControlInput: aTF_Output
 	^ self
 		ffiCall:
 			#(void TF_AddControlInput #(TF_OperationDescription * aTF_OperationDescription , TF_Output aTF_Output))
-		module: 'libtensorflow.dylib'
+		module: TensorFlowCAPI

@@ -7,4 +7,4 @@ stringEncode: srcString len: srcLen destination: dstString len: dstLen status: s
 	^ self
 		ffiCall:
 			#(size_t TF_StringEncode #(String srcString , size_t srcLen , String dstString , size_t dstLen, TF_Status * status))
-		module: 'libtensorflow.dylib'
+		module: TensorFlowCAPI

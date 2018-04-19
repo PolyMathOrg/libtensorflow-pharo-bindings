@@ -4,4 +4,4 @@ description: desc set: attr_name toInt64: value
 
 	^ self
 		ffiCall: #(void TF_SetAttrInt #(TF_OperationDescription * desc , String attr_name , int64 value))
-		module: 'libtensorflow.dylib'
+		module: TensorFlowCAPI

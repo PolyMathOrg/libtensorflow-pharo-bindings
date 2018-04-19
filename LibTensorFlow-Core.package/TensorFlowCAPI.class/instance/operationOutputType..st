@@ -4,4 +4,4 @@ operationOutputType: aTF_Output
 
 	^ self
 		ffiCall: #(int TF_OperationOutputType #(TF_Output aTF_Output))
-		module: 'libtensorflow.dylib'
+		module: TensorFlowCAPI

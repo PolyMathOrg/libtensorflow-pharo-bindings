@@ -7,4 +7,4 @@ TF_Status* status);"
 	^ self
 		ffiCall:
 			#(size_t TF_StringDecode #(String srcString , size_t srcLen , String dstPointer , size_t * dstLenPointer, TF_Status * status))
-		module: 'libtensorflow.dylib'
+		module: TensorFlowCAPI

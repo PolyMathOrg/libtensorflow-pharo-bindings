@@ -9,4 +9,4 @@ description: aTF_OperationDescription set: aString toStrings: anArrayOfString si
 	^ self
 		ffiCall:
 			#(void TF_SetAttrStringList #(TF_OperationDescription * aTF_OperationDescription , String aString , void * anArrayOfString , Int64Array * sizes , int count))
-		module: 'libtensorflow.dylib'
+		module: TensorFlowCAPI

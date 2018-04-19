@@ -1,3 +1,0 @@
-accessing
-moduleName
-	^ 'libtensorflow.dylib'

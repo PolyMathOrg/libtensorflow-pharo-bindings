@@ -4,4 +4,4 @@ description: aTF_OperationDescription set: aString toFloat: valueFloat
 
 	^ self
 		ffiCall: #(void TF_SetAttrFloat #(TF_OperationDescription * aTF_OperationDescription , String aString , float valueFloat))
-		module: 'libtensorflow.dylib'
+		module: TensorFlowCAPI

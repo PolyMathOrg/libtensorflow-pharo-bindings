@@ -10,4 +10,4 @@ allocateTensorType: anInteger shape: aLongLongArray rank: dimCount length: len
 			Int64Array * aLongLongArray,
 			int dimCount,
 			size_t len))
-		module: 'libtensorflow.dylib'
+		module: TensorFlowCAPI

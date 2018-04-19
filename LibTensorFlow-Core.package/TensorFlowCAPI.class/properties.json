@@ -1,6 +1,6 @@
 {
 	"commentStamp" : "",
-	"super" : "ExternalLibrary",
+	"super" : "FFILibrary",
 	"category" : "LibTensorFlow-Core",
 	"classinstvars" : [
 		"current"

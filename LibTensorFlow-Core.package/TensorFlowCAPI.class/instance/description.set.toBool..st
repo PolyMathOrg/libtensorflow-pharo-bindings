@@ -5,4 +5,4 @@ description: desc set: attr_name toBool: value
 
 	^ self
 		ffiCall: #(void TF_SetAttrBool #(TF_OperationDescription * desc , String attr_name , bool value))
-		module: 'libtensorflow.dylib'
+		module: TensorFlowCAPI

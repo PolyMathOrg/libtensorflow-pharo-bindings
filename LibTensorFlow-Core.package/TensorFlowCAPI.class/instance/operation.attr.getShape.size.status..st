@@ -7,4 +7,4 @@ operation: aTF_Operation attr: nameZString getShape: int64array size: maxSize st
 
 	^ self
 		ffiCall: #(void TF_OperationGetAttrShape #(TF_Operation * aTF_Operation , String nameZString , Int64Array * int64array , int maxSize, TF_Status * status))
-		module: 'libtensorflow.dylib'
+		module: TensorFlowCAPI

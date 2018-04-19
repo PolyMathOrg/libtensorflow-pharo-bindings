@@ -6,4 +6,4 @@ description: aTF_OperationDescription set: aString toType: anInt
 	^ self
 		ffiCall:
 			#(void TF_SetAttrType #(TF_OperationDescription * aTF_OperationDescription , String aString , int anInt))
-		module: 'libtensorflow.dylib'
+		module: TensorFlowCAPI

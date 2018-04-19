@@ -4,4 +4,4 @@ operationNumInputs: aTF_Operation
 
 	^ self
 		ffiCall: #(long TF_OperationNumInputs #(TF_Operation * aTF_Operation))
-		module: 'libtensorflow.dylib'
+		module: TensorFlowCAPI
