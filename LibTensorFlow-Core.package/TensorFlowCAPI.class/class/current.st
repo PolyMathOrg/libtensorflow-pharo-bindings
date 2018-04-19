@@ -1,3 +1,3 @@
 accessing
 current
-	^ current ifNil: [ current := self new forceLoading ]
+	^ current ifNil: [ current := self uniqueInstance ]
