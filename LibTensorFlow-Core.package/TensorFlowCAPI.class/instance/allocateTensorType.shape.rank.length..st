@@ -1,12 +1,13 @@
 tensor
 allocateTensorType: anInteger shape: aLongLongArray rank: dimCount length: len
-	"<cdecl: TF_Tensor* 'TF_AllocateTensor' (ulong UInt64Array* ulonglong ulonglong)>"
+	"TF_CAPI_EXPORT extern TF_Tensor* TF_AllocateTensor(TF_DataType,
+                                                   const int64_t* dims, int num_dims, size_t len);"
 
 	^ self
 		ffiCall: #(
 		TF_Tensor * TF_AllocateTensor #(
-			long anInteger,
+			int anInteger,
 			Int64Array * aLongLongArray,
-			long dimCount,
+			int dimCount,
 			size_t len))
 		module: 'libtensorflow.dylib'

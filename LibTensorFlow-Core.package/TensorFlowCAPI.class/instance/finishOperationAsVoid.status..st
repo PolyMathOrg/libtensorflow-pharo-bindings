@@ -1,6 +1,6 @@
 operation description
 finishOperationAsVoid: aTF_OperationDescription status: aTF_Status
-	"<cdecl: void* 'TF_FinishOperation' (TF_OperationDescription* TF_Status*)>"
+	"TF_CAPI_EXPORT extern TF_Operation* TF_FinishOperation(TF_OperationDescription* desc, TF_Status* status);"
 	
 	^ self
 		ffiCall:

@@ -1,8 +1,12 @@
 operation description
 description: aTF_OperationDescription set: aString toStrings: anArrayOfString sizes: sizes count: count
-	"<cdecl: void 'TF_SetAttrStringList' (TF_OperationDescription* char* void* Int64Array* longlong)>"
+	"TF_CAPI_EXPORT extern void TF_SetAttrStringList(TF_OperationDescription* desc,
+                                                const char* attr_name,
+                                                const void* const* values,
+                                                const size_t* lengths,
+															  int num_values);"
 
 	^ self
 		ffiCall:
-			#(void TF_SetAttrStringList #(TF_OperationDescription * aTF_OperationDescription , String aString , void * anArrayOfString , Int64Array * sizes , longlong count))
+			#(void TF_SetAttrStringList #(TF_OperationDescription * aTF_OperationDescription , String aString , void * anArrayOfString , Int64Array * sizes , int count))
 		module: 'libtensorflow.dylib'

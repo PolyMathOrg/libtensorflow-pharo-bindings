@@ -1,8 +1,10 @@
 strings
 stringEncode: srcString len: srcLen destination: dstString len: dstLen status: status
-	"<cdecl: ulonglong 'TF_StringEncode' (char* ulonglong char* ulonglong TF_Status*)>"
+	"TF_CAPI_EXPORT extern size_t TF_StringEncode(const char* src, size_t src_len,
+                                             char* dst, size_t dst_len,
+													TF_Status* status);"
 
 	^ self
 		ffiCall:
-			#(ulonglong TF_StringEncode #(String srcString , ulonglong srcLen , String dstString , ulonglong dstLen, TF_Status * status))
+			#(size_t TF_StringEncode #(String srcString , size_t srcLen , String dstString , size_t dstLen, TF_Status * status))
 		module: 'libtensorflow.dylib'

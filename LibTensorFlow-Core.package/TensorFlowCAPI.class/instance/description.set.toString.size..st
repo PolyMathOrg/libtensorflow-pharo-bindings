@@ -5,5 +5,5 @@ description: desc set: attr_name toString: value size: size
 
 	^ self
 		ffiCall:
-			#(void TF_SetAttrString #(TF_OperationDescription * desc , String attr_name , String value , size_t length))
+			#(void TF_SetAttrString #(TF_OperationDescription * desc , String attr_name , String value , size_t size))
 		module: 'libtensorflow.dylib'
