@@ -1,3 +1,3 @@
 instance creation
 create
-	^ TensorFlowCAPI current newGraph initialize useFinalization
+	^ TensorFlowCAPI current newGraph initialize autoRelease
