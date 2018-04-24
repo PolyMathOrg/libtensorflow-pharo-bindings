@@ -22,8 +22,5 @@ testDecodeCSVGraphRunCSV: csvLines
 			(output output: 1).
 			(output output: 2).
 			(output output: 3)}.
-		
-	graph delete.
-	
 	^ (1 to: 4) collect: [:i |
 		(results at: i) allInt64s].
