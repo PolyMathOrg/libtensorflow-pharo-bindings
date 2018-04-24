@@ -1,8 +1,9 @@
 testing graph
 testGraphDeletionDoesntBreakSessions
 	| graph inputs inputValues add output session results |
+	self assert: false description:'This method crash until we are able to remove instances from finalization list'.
 	graph := self addGraphTwoInputsInt64.
-	graph ignoreFinalization.
+	"graph ignoreFinalization."
 	inputs := Array
 		with: ((graph operationNamed: 'in1') input: 0)
 		with: ((graph operationNamed: 'in2') input: 0).
@@ -14,7 +15,7 @@ testGraphDeletionDoesntBreakSessions
 	session := TF_Session on: graph.
 	graph delete.
 	graph := self addGraphTwoInputsInt64.
-	graph ignoreFinalization.
+	"graph ignoreFinalization."
 	graph delete.
 	results := session
 		runOperations: (Array with: add)

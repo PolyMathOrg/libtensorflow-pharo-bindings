@@ -1,6 +1,7 @@
 testing operation
 testAttrGetStrings
 	| graph template in op strings |
+	self assert: false description: 'DebugIdentity operation does not exist anymore in TF r1.7'.
 	graph := TF_Graph create.
 	template := #('hola' 'como' 'estas?').
 	in := graph const: 'in' value: (TF_Tensor fromFloats: 1).
