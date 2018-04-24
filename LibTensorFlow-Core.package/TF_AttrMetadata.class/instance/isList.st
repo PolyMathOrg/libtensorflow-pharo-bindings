@@ -1,4 +1,4 @@
 accessing structure variables
 isList
 
-^ self _isList = 1
+^ self isList = 1

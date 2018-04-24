@@ -1,3 +1,3 @@
 types
 isType
-	^ self _type = 4
+	^ self type = 4

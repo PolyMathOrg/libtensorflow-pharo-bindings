@@ -1,3 +1,3 @@
 types
 isShape
-	^ self _type = 5
+	^ self type = 5

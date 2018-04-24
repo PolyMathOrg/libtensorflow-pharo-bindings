@@ -1,4 +1,4 @@
 accessing structure variables
-_type
+is_list: anObject
 	"This method was automatically generated"
-	^handle signedLongAt: OFFSET__TYPE
+	handle unsignedByteAt: OFFSET_IS_LIST put: anObject

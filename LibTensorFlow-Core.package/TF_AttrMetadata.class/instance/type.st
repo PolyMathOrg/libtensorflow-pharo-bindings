@@ -1,4 +1,4 @@
 accessing structure variables
-listSize
+type
 	"This method was automatically generated"
-	^handle signedLongLongAt: OFFSET_LISTSIZE
+	^handle signedLongAt: OFFSET_TYPE

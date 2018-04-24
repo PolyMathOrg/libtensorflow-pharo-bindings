@@ -1,4 +1,4 @@
 accessing structure variables
-_type: anObject
+type: anObject
 	"This method was automatically generated"
-	handle signedLongAt: OFFSET__TYPE put: anObject
+	handle signedLongAt: OFFSET_TYPE put: anObject

@@ -2,9 +2,8 @@ field definition
 fieldsDesc
 	"self rebuildFieldAccessors"
 
-	^ #(
-	byte _isList; 
-	int64 listSize;
-	int _type; 
-	int64 totalSize;
+	^ #(byte is_list;
+	 int64 list_size;
+	 int type;
+	 int64 total_size;
 	)

@@ -5,10 +5,10 @@
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [
-		"OFFSET_LISTSIZE",
-		"OFFSET_TOTALSIZE",
-		"OFFSET__ISLIST",
-		"OFFSET__TYPE"
+		"OFFSET_IS_LIST",
+		"OFFSET_LIST_SIZE",
+		"OFFSET_TOTAL_SIZE",
+		"OFFSET_TYPE"
 	],
 	"instvars" : [ ],
 	"name" : "TF_AttrMetadata",

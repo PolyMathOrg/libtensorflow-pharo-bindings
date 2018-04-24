@@ -1,4 +1,4 @@
 accessing structure variables
-totalSize
+total_size
 	"This method was automatically generated"
-	^handle signedLongLongAt: OFFSET_TOTALSIZE
+	^handle signedLongLongAt: OFFSET_TOTAL_SIZE

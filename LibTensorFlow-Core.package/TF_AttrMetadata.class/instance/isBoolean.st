@@ -1,3 +1,3 @@
 types
 isBoolean
-	^ self _type = 3
+	^ self type = 3
