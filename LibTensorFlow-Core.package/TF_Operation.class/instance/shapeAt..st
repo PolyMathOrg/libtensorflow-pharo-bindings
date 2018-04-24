@@ -1,7 +1,8 @@
 attributes
 shapeAt: nameString
 	| value status size answer |
-	size := (self attrMetadata: nameString) totalSize.
+	size := (self attrMetadata: nameString) total_size.
+	(size = -1) ifTrue:[^#()].
 	status := TF_Status create.
 	value := Int64Array externalNew: size.
 	
