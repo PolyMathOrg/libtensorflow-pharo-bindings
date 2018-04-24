@@ -1,0 +1,20 @@
+{
+	"commentStamp" : "",
+	"super" : "TF_Structure",
+	"category" : "LibTensorFlow-Core",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [
+		"OFFSET_BODY_GRAPH",
+		"OFFSET_BODY_INPUTS",
+		"OFFSET_BODY_OUTPUTS",
+		"OFFSET_COND_GRAPH",
+		"OFFSET_COND_INPUTS",
+		"OFFSET_COND_OUTPUT",
+		"OFFSET_NAME",
+		"OFFSET_NINPUTS"
+	],
+	"instvars" : [ ],
+	"name" : "TF_WhileParams",
+	"type" : "normal"
+}
