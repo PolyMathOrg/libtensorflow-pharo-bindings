@@ -1,3 +1,3 @@
 instance creation
 create
-	^ TensorFlowCAPI current newSessionOptions useFinalization
+	^ TensorFlowCAPI current newSessionOptions autoRelease
