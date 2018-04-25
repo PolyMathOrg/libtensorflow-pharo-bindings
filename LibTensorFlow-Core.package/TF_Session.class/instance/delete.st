@@ -1,6 +1,8 @@
 release
 delete
-	| status |
+| status |
+"deprecated"
+self halt.
 	self ignoreFinalization.
 	self isNull ifFalse: [
 		self close.
