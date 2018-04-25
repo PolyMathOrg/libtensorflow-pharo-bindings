@@ -3,4 +3,5 @@ finishOperation: aTF_OperationDescription status: aTF_Status
 	| answer |
 	
 	answer := self finishOperationAsVoid: aTF_OperationDescription status: aTF_Status.
-	^ TF_Operation fromHandle: answer getHandle.
+	answer handle: answer getHandle getHandle.
+	^answer
