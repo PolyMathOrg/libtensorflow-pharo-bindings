@@ -14,8 +14,4 @@ testRunGraphMulOneInput
 		output: output.
 	self deny: result isNull.
 	self deny: result data isNull.
-	self assert: (result data getHandle signedLongLongAt: 1) equals: 16r4242424242424242.
-	result delete.
-	input free.
-	output free.
-	graph delete
+	self assert: (result data getHandle signedLongLongAt: 1) equals: 16r4242424242424242

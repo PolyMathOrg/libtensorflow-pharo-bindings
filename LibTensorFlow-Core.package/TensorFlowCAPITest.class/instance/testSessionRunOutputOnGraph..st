@@ -7,6 +7,4 @@ testSessionRunOutputOnGraph: graph
 	tensor := session runOutput: output.
 	self deny: tensor isNull.
 	self deny: tensor data isNull.
-	self assert: (tensor data getHandle signedLongLongAt: 1) equals: 16r4242424242424242.
-	output free.
-	graph delete
+	self assert: (tensor data getHandle signedLongLongAt: 1) equals: 16r4242424242424242
