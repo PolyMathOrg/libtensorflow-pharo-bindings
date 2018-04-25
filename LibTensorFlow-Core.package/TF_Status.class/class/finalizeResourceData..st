@@ -1,4 +1,4 @@
-instance creation
+finalize resources
 finalizeResourceData: handle
 
 	handle isNull ifTrue: [ ^ self ].

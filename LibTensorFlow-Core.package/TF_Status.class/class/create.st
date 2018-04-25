@@ -1,6 +1,3 @@
 instance creation
 create
-	| answer |
-	answer := self persistent.
-	answer autoRelease.
-	^ answer
+	^ TensorFlowCAPI current newStatus autoRelease
