@@ -2,6 +2,7 @@ binary operations
 testOperationArgMinTwoOutputs
 	| graph a session const results first second output0 output1 axis0 axis1 |
 	
+	self assert: false.
 	a := TF_Tensor fromFloats: #(
 		(1.1 1.2)
 		(2.1 2.2)

@@ -4,5 +4,4 @@ testSessionRunTarget
 	graph := self constantFloatGraphFromDef.
 	session := TF_Session on: graph.
 	operation := graph operationNamed: 'a'.
-	session runOperation: operation.
-	graph delete
+	session runOperation: operation
