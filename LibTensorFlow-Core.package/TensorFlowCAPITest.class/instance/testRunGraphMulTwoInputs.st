@@ -21,7 +21,4 @@ testRunGraphMulTwoInputs
 	self deny: results isNull.
 	self deny: results first isNull.
 	self deny: results first data isNull.
-	self assert: (results first data getHandle signedLongLongAt: 1) equals: 16r4242424242424242.
-
-	graph delete.
-	results first delete.
+	self assert: (results first data getHandle signedLongLongAt: 1) equals: 16r4242424242424242
