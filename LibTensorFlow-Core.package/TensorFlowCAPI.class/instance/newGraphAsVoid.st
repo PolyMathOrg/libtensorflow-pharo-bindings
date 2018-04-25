@@ -1,5 +1,5 @@
 instance creation
 newGraphAsVoid
-	"<cdecl: void* 'TF_NewGraph' (void)>"
+	"F_CAPI_EXPORT extern TF_Graph* TF_NewGraph();"
 
-	^ self ffiCall: #(void * TF_NewGraph #()) module: TensorFlowCAPI
+	^ self ffiCall: #(TF_Graph * TF_NewGraph #()) module: TensorFlowCAPI
