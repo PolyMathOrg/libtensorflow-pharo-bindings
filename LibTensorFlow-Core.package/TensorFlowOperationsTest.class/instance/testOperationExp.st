@@ -15,6 +15,4 @@ testOperationExp
 	
 	self assert: result shape equals: inputs shape.
 	result allFloats with: template exp do: [:res :temp |
-		self assert: (res closeTo: temp)].
-	
-	output free.
+		self assert: (res closeTo: temp)]

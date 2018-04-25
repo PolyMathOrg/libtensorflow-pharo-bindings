@@ -13,6 +13,4 @@ testOperationSquared
 	
 	self assert: result shape equals: template shape.
 	result allFloats with: template allFloats squared do: [:res :temp |
-		self assert: (res closeTo: temp)].
-	
-	output free.
+		self assert: (res closeTo: temp)]

@@ -17,6 +17,4 @@ testSoftmax
 	result allFloats with: template allFloats exp / denominator do: [:res :temp |
 		| delta |
 		delta := (res  - temp) abs.
-		self assert: delta < 0.001].
-	
-	output free.
+		self assert: delta < 0.001]

@@ -9,5 +9,4 @@ testOperationAcos
 	session := TF_Session on: graph.
 	result := session runOutput: output.
 	self assert: result shape equals: intput shape.
-	result allFloats with: template do: [ :res :temp | self assert: (res closeTo: temp) ].
-	output free
+	result allFloats with: template do: [ :res :temp | self assert: (res closeTo: temp) ]

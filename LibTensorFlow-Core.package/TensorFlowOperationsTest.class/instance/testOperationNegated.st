@@ -12,6 +12,4 @@ testOperationNegated
 	result := session runOutput: negated.
 	
 	self assert: result shape equals: template shape.
-	self assert: result allFloats equals: template allFloats negated.
-	
-	negated free.
+	self assert: result allFloats equals: template allFloats negated

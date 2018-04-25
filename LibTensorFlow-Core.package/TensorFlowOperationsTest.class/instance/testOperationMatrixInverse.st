@@ -11,5 +11,4 @@ testOperationMatrixInverse
 	self assert: result shape equals: template shape.
 	result allFloats
 		with: #(1.0 0.0 0.0 1.0)
-		do: [ :real :expected | self assert: (real closeTo: expected) ].
-	"identity free"
+		do: [ :real :expected | self assert: (real closeTo: expected) ]

@@ -16,6 +16,4 @@ testOperationSigmoid
 	transformed := template collect:[:x| (x negated exp + 1) reciprocal].
 	self assert: result shape equals: inputs shape.
 	result allFloats with: transformed do: [:res :temp |
-		self assert: (res closeTo: temp)].
-	
-	output free.
+		self assert: (res closeTo: temp)]

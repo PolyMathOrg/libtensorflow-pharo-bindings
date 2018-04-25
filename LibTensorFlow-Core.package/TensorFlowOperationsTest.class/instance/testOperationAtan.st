@@ -14,6 +14,4 @@ testOperationAtan
 	
 	self assert: result shape equals: intput shape.
 	result allFloats with: template do: [:res :temp |
-		self assert: (res closeTo: temp)].
-	
-	output free.
+		self assert: (res closeTo: temp)]
