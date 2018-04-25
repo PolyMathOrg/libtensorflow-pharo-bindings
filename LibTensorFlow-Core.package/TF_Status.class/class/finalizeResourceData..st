@@ -2,4 +2,4 @@ finalize resources
 finalizeResourceData: handle
 
 	handle isNull ifTrue: [ ^ self ].
-	handle free
+	(TensorFlowCAPI current) deleteStatus: handle
