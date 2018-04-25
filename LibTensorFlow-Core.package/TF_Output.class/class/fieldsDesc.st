@@ -10,5 +10,4 @@ typedef struct TF_Output {
 
 	^ #(
 		TF_Operation * operation ;
-		int index ;
-		int pad;)
+		int index)

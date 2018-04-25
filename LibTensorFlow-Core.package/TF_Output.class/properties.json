@@ -6,8 +6,7 @@
 	"pools" : [ ],
 	"classvars" : [
 		"OFFSET_INDEX",
-		"OFFSET_OPERATION",
-		"OFFSET_PAD"
+		"OFFSET_OPERATION"
 	],
 	"instvars" : [ ],
 	"name" : "TF_Output",
