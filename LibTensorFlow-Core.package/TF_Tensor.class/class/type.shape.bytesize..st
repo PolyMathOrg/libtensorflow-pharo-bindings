@@ -9,12 +9,13 @@ type: anInteger shape: anIntegerArray bytesize: bytesizeInteger
 	"
 		
 	| externalized answer |
-	externalized := Int64Array externalFromArray: anIntegerArray.
+	
+	externalized := FFIExternalArray externalNewType: 'int64' fromArray: anIntegerArray.
 	
 	answer := TensorFlowCAPI current
 		allocateTensorType: anInteger
-		shape: externalized
+		shape: externalized getHandle
 		rank: anIntegerArray size
 		length: bytesizeInteger.
-	answer useFinalization.
+	answer autoRelease.
 	^ answer

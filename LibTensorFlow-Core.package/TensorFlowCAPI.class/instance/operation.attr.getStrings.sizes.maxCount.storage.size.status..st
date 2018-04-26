@@ -6,5 +6,5 @@ int max_values, void* storage, size_t storage_size, TF_Status* status);"
 
 	^ self
 		ffiCall:
-			#(void TF_OperationGetAttrStringList #(TF_Operation * aTF_Operation , String nameZString , void * valueStringArray , Int64Array * sizesArray , int maxCount , void * aByteArray , size_t storageSize , TF_Status * status))
+			#(void TF_OperationGetAttrStringList #(TF_Operation * aTF_Operation , String nameZString , void * valueStringArray , int64 * sizesArray , int maxCount , void * aByteArray , size_t storageSize , TF_Status * status))
 		module: TensorFlowCAPI

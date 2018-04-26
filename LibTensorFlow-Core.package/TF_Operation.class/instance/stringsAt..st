@@ -5,14 +5,14 @@ stringsAt: nameString
 	spaceRequired := metadata totalSize.
 	valuesCount := metadata listSize.
 	pointers := ByteArray new: Smalltalk wordSize * valuesCount.
-	sizes := (Int64Array externalNew: valuesCount) useFinalization.
+	sizes := (FFIExternalArray externalNewType: 'int64' size: valuesCount) autoRelease.
 	storage := ExternalAddress gcallocate: spaceRequired.
 	status := TF_Status create.
 	self library
 		operation: self
 		attr: nameString asAsciiZ 
 		getStrings: pointers
-		sizes: sizes
+		sizes: sizes getHandle
 		maxCount: valuesCount
 		storage: storage
 		size: spaceRequired

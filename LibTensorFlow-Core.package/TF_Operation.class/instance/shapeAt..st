@@ -4,12 +4,12 @@ shapeAt: nameString
 	size := (self attrMetadata: nameString) total_size.
 	(size = -1) ifTrue:[^#()].
 	status := TF_Status create.
-	value := Int64Array externalNew: size.
+	value := FFIExternalArray externalNewType: 'int64' size: size.
 	
 	self library
 		operation: self
 		attr: nameString asAsciiZ
-		getShape: value
+		getShape: value getHandle
 		size: size
 		status: status.
 	status check.

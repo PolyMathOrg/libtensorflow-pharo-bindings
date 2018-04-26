@@ -2,9 +2,9 @@ attributes
 at: attribute putStrings: anArrayOfStrings
 	| status sizes strings pointers |
 	sizes := anArrayOfStrings collect: [:str | str size].
-	sizes := Int64Array externalFromArray: sizes.
-	sizes useFinalization.
-	strings := anArrayOfStrings collect: [:each | (self library externalizeString: each) useFinalization].
+	sizes := FFIExternalArray externalNewType: 'int64' fromArray: sizes.
+	sizes autoRelease.
+	strings := anArrayOfStrings collect: [:each | (self library externalizeString: each) autoRelease].
 	pointers := ByteArray new: Smalltalk wordSize * strings size.
 	strings withIndexDo: [:each :index |
 		pointers pointerAt: index-1*Smalltalk wordSize+1 put: each].
@@ -14,7 +14,7 @@ at: attribute putStrings: anArrayOfStrings
 		description: self
 		set: attribute asAsciiZ
 		toStrings: pointers
-		sizes: sizes
+		sizes: sizes getHandle
 		count: anArrayOfStrings size.
 	status check
 	

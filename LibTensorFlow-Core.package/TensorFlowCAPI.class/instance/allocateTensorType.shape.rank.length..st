@@ -7,7 +7,7 @@ allocateTensorType: anInteger shape: aLongLongArray rank: dimCount length: len
 		ffiCall: #(
 		TF_Tensor * TF_AllocateTensor #(
 			int anInteger,
-			Int64Array * aLongLongArray,
+			int64 * aLongLongArray,
 			int dimCount,
 			size_t len))
 		module: TensorFlowCAPI
