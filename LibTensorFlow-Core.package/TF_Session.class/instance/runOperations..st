@@ -2,7 +2,7 @@ running
 runOperations: anArrayOfTF_Operations
 	| status operations |
 	status := TF_Status create.
-	operations := TF_OperationPtrArrayOld externalFromArray: anArrayOfTF_Operations.
+	operations := TF_OperationPtrArray fromCollection: anArrayOfTF_Operations.
 	self library
 		runSession: self
 		options: nil
@@ -12,7 +12,7 @@ runOperations: anArrayOfTF_Operations
 		outputs: nil
 		values: nil
 		count: 0
-		targets: operations
+		targets: operations getHandle
 		count: anArrayOfTF_Operations size
 		metadata: nil
 		status: status.
