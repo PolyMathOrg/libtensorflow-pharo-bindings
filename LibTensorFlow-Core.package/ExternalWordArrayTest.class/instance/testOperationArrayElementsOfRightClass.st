@@ -1,3 +1,3 @@
 testing
 testOperationArrayElementsOfRightClass
-	^ self testArray: TF_OperationPtrArray sampleElement: TF_Operation new
+	^ self testArray: TF_OperationPtrArrayOld sampleElement: TF_Operation new

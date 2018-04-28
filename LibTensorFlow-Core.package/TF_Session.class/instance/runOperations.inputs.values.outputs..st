@@ -2,11 +2,11 @@ running
 runOperations: anArrayOfTF_Operations inputs: inArrayOfTF_Outputs values: inArrayOfTF_Tensor outputs: outArrayOfTF_Outputs
 	| operations inputs invalues outputs outvalues status |
 	status := TF_Status create.
-	operations := TF_OperationPtrArray externalFromArray: anArrayOfTF_Operations.
-	inputs := TF_OutputArray externalFromArray: inArrayOfTF_Outputs.
-	invalues := TF_TensorPtrArray externalFromArray: inArrayOfTF_Tensor.
-	outputs := TF_OutputArray externalFromArray: outArrayOfTF_Outputs.
-	outvalues := TF_TensorPtrArray new: outArrayOfTF_Outputs size.
+	operations := TF_OperationPtrArrayOld externalFromArray: anArrayOfTF_Operations.
+	inputs := TF_OutputArrayOld externalFromArray: inArrayOfTF_Outputs.
+	invalues := TF_TensorPtrArrayOld externalFromArray: inArrayOfTF_Tensor.
+	outputs := TF_OutputArrayOld externalFromArray: outArrayOfTF_Outputs.
+	outvalues := TF_TensorPtrArrayOld new: outArrayOfTF_Outputs size.
 	
 	self library
 		runSession: self options: nil

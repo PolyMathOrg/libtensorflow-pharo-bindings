@@ -5,5 +5,5 @@ description: aTF_OperationDescription addInputs: aTF_OutputArray size: anInteger
 
 	^ self
 		ffiCall:
-			#(void TF_AddInputList #(TF_OperationDescription * aTF_OperationDescription , TF_OutputArray * aTF_OutputArray , int anInteger))
+			#(void TF_AddInputList #(TF_OperationDescription * aTF_OperationDescription , #TF_OutputArrayOld * aTF_OutputArray , int anInteger))
 		module: TensorFlowCAPI

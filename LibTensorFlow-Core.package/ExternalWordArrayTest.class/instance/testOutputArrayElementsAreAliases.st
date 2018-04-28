@@ -2,7 +2,7 @@ testing
 testOutputArrayElementsAreAliases
 	| array size one other |
 	size := 4.
-	array := TF_OutputArray externalNew: size.
+	array := TF_OutputArrayOld externalNew: size.
 	one := array first.
 	other := array at: 1.
 	one index: 12345678.

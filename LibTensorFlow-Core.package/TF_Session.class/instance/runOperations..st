@@ -2,7 +2,7 @@ running
 runOperations: anArrayOfTF_Operations
 	| status operations |
 	status := TF_Status create.
-	operations := TF_OperationPtrArray externalFromArray: anArrayOfTF_Operations.
+	operations := TF_OperationPtrArrayOld externalFromArray: anArrayOfTF_Operations.
 	self library
 		runSession: self
 		options: nil

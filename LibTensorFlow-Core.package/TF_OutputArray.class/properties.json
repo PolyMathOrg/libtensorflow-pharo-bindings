@@ -1,6 +1,6 @@
 {
-	"commentStamp" : "SergeStinckwich 3/3/2018 12:36",
-	"super" : "ExternalWordArray",
+	"commentStamp" : "",
+	"super" : "FFIExternalArray",
 	"category" : "LibTensorFlow-Core",
 	"classinstvars" : [ ],
 	"pools" : [ ],

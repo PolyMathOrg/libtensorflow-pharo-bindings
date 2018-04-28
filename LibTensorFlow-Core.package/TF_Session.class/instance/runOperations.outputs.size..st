@@ -2,7 +2,7 @@ running
 runOperations: aTF_OperationArray outputs: aTF_OutputArray size: anInteger
 	| status outvalues |
 	status := TF_Status create.
-	outvalues := TF_TensorPtrArray new: anInteger.
+	outvalues := TF_TensorPtrArrayOld new: anInteger.
 	self library
 		runSession: self
 		options: nil
