@@ -9,8 +9,8 @@ runInputs: inArrayOfTF_Outputs values: inArrayOfTF_Tensor outputs: outArrayOfTF_
 	
 	self library
 		runSession: self options: nil
-		inputs: inputs getHandle values: invalues count: inArrayOfTF_Outputs size
-		outputs: outputs getHandle values: outvalues count: outArrayOfTF_Outputs size
+		inputs: inputs getHandle values: invalues getHandle count: inArrayOfTF_Outputs size
+		outputs: outputs getHandle values: outvalues getHandle count: outArrayOfTF_Outputs size
 		targets: nil count: 0
 		metadata: nil status: status.
 		

@@ -2,5 +2,5 @@ accessing
 fromCollection: aCollection
 |answer|
 answer := self externalNewType: self type size: aCollection size.
-aCollection withIndexDo: [ :each :index | answer at: index put: each ].
+aCollection withIndexDo: [ :each :index | answer at: index put: each getHandle].
 ^answer
