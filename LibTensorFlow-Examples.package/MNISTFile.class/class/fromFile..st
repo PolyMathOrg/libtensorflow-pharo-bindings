@@ -4,7 +4,7 @@ fromFile: aString
 	filename := aString, '.gz'.
 	file := ('dataset/', filename) asFileReference.
 	file exists ifFalse:[ file := self download: filename].
-	compressed := file readStream contentsOfEntireFile.
+	compressed := file readStream.
 	stream := (GZipReadStream on: compressed) upToEnd asByteArray readStream.
 	^ self fromStream: stream
 	

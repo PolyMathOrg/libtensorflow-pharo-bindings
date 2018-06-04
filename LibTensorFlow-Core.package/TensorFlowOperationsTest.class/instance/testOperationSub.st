@@ -11,7 +11,7 @@ testOperationSub
 	constB := graph const: 'b' value: b.
 	
 	sub := constA - constB.
-	
+	self halt.
 	session := TF_Session on: graph.
 	result := session runOutput: (sub output: 0).
 	

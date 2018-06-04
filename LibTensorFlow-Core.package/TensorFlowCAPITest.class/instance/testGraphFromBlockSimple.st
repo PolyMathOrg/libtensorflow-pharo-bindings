@@ -1,6 +1,7 @@
 testing graph
 testGraphFromBlockSimple
 	| graph output inputs results |
+	self halt.
 	graph := TF_Graph fromBlock: [ :a :b | a + b ].
 	inputs := graph allInputs collect: [ :placeholder | placeholder input: 0 ].
 	output := graph operationNamed: 'output'.

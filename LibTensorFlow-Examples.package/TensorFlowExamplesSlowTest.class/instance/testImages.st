@@ -2,7 +2,7 @@ testing - MNIST files
 testImages
 	| testing training |
 	testing := MNISTImageFile testSet.
-	training := MNISTImageFile trainingSet .
+	training := MNISTImageFile trainingSet.
 	
 	self assert: testing count equals: 10000.
 	self assert: training count equals: 60000.

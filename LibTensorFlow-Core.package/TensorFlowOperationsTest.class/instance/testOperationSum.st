@@ -37,4 +37,4 @@ testOperationSum
 	
 	self assert: result shape equals: #(3).
 	result allFloats with: sumOn1 do: [:r :t |
-		self assert: (r closeTo: t)].
+		self assert: (r closeTo: t)]
