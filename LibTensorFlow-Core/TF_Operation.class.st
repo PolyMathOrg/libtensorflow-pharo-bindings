@@ -247,7 +247,8 @@ TF_Operation >> floatAt: nameString [
 
 { #category : #accessing }
 TF_Operation >> graph [
-"The Graph that contains this operation."
+	"The Graph that contains this operation"
+	
 	^ graph
 ]
 
@@ -266,8 +267,10 @@ TF_Operation >> identity [
 ]
 
 { #category : #accessing }
-TF_Operation >> input: indexInteger [
-	^ TF_Input onOperation: self index: indexInteger
+TF_Operation >> input: anInteger [
+	"Return input at position anInteger"
+	
+	^ TF_Input onOperation: self index: anInteger
 ]
 
 { #category : #accessing }
@@ -307,7 +310,8 @@ TF_Operation >> meanOn: shapeTensorOrOperation [
 
 { #category : #accessing }
 TF_Operation >> name [
-"The full name of this operation"
+	"The full name of this operation"
+	
 	^ self library operationName: self
 ]
 
@@ -361,12 +365,16 @@ TF_Operation >> output [
 ]
 
 { #category : #accessing }
-TF_Operation >> output: indexInteger [
-	^ TF_Output onOperation: self index: indexInteger
+TF_Operation >> output: anInteger [
+	"Return output at position anInteger"
+	
+	^ TF_Output onOperation: self index: anInteger
 ]
 
 { #category : #accessing }
 TF_Operation >> outputsCount [
+	"Returns number of inputs of this operation"
+	
 	^ self library operationNumOutputs: self
 ]
 
@@ -535,7 +543,8 @@ TF_Operation >> timesRectifiedGradOf: aTF_Operation [
 
 { #category : #accessing }
 TF_Operation >> type [
-"The type of the op (e.g. MatMul)."
+	"The type of the op (e.g. MatMul)"
+
 	^ self library operationOpType: self
 ]
 
