@@ -99,11 +99,17 @@ TF_Operation >> \\ aTF_Operation [
 
 { #category : #'ops unary' }
 TF_Operation >> abs [
+	"Computes the absolute value of a tensor"
+	"https://www.tensorflow.org/api_docs/cc/class/tensorflow/ops/abs"
+
 	^ self unaryOp: 'Abs'
 ]
 
 { #category : #'ops unary' }
 TF_Operation >> alias: nameString [
+	"Return a tensor with the same shape and contents as the input tensor or value"
+	"https://www.tensorflow.org/api_docs/cc/class/tensorflow/ops/identity"
+
 	^ self unaryOp: 'Identity' named: nameString
 ]
 
@@ -257,6 +263,9 @@ TF_Operation >> graph: aTF_Graph [
 
 { #category : #'ops unary' }
 TF_Operation >> identity [
+	"Return a tensor with the same shape and contents as the input tensor or value"
+	"https://www.tensorflow.org/api_docs/cc/class/tensorflow/ops/identity"
+
 	^ self unaryOp: 'Identity'
 	
 ]
@@ -279,6 +288,8 @@ TF_Operation >> intAt: nameString [
 
 { #category : #'ops unary' }
 TF_Operation >> inverse [
+	"Return a tensor that is the inverse of the input"
+
 	^ self unaryOp: 'MatrixInverse'
 ]
 
@@ -341,7 +352,7 @@ TF_Operation >> op: aString withAll: aTF_OperationArray named: name described: o
 
 { #category : #initialization }
 TF_Operation >> output [
-"The list of Tensor objects representing the outputs of this op."
+	"The list of Tensor objects representing the outputs of this op."
 
 	output ifNil: [ output := 0 ].
 	^ self output: output
@@ -360,12 +371,12 @@ TF_Operation >> outputsCount [
 { #category : #printing }
 TF_Operation >> printOn: stream [
 	super printOn: stream.
-"	handle isNull
+	handle isNull
 		ifFalse: [ stream
 				space;
 				print: self type;
 				space;
-				print: self name ]"
+				print: self name ]
 ]
 
 { #category : #'ops unary' }
