@@ -370,6 +370,8 @@ TF_Operation >> printOn: stream [
 
 { #category : #'ops unary' }
 TF_Operation >> rectified [
+	"Computes rectified linear: max(features, 0)"
+
 	^ self unaryOp: 'Relu'
 ]
 
