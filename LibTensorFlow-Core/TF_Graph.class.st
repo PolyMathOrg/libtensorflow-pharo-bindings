@@ -449,6 +449,8 @@ TF_Graph >> writeDefToFileNamed: filename [
 
 { #category : #'root operations' }
 TF_Graph >> zerosShaped: shapeArray [
+	"This operation creates a tensor of shape shapeArray and fills it zero"
+	
 	| shape |
 	shape := self const: shapeArray asInt32Tensor.
 	^ shape binaryOp: 'Fill' with: 0.0 asTensor

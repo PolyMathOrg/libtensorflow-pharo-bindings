@@ -220,6 +220,31 @@ TensorFlowOperationsTest >> testOperationAcos [
 	result allFloats with: template do: [ :res :temp | self assert: (res closeTo: temp) ]
 ]
 
+{ #category : #'unary operations' }
+TensorFlowOperationsTest >> testOperationAlias [
+	| graph template const result same1 same2 |
+	graph := TF_Graph create.
+	template := TF_Tensor fromFloats: #(
+		((1) (2) (3)) 
+		((4) (5) (6))
+	).
+	const := graph const: 'const' value: template.
+	same1 := const alias: 'another_name'.
+	same2 := graph operationNamed: 'another_name'.
+	
+	result := (TF_Session on: graph) runOutput: (same1 output: 0).
+	
+	self assert: template shape equals: result shape.
+	self assert: #(1 2 3 4 5 6) equals: result allFloats.
+	
+	result := (TF_Session on: graph) runOutput: (same2 output: 0).
+	
+	self assert: template shape equals: result shape.
+	self assert: #(1 2 3 4 5 6) equals: result allFloats.
+	
+
+]
+
 { #category : #'binary operations' }
 TensorFlowOperationsTest >> testOperationArgMax [
 	| graph a session const result output0 output1 axis0 axis1 |
@@ -511,31 +536,6 @@ TensorFlowOperationsTest >> testOperationGreater [
 	self assert: result shape equals: a shape.
 	result allElements with: template do: [:r :t |
 		self assert: r equals: t].
-]
-
-{ #category : #'unary operations' }
-TensorFlowOperationsTest >> testOperationIAlias [
-	| graph template const result same1 same2 |
-	graph := TF_Graph create.
-	template := TF_Tensor fromFloats: #(
-		((1) (2) (3)) 
-		((4) (5) (6))
-	).
-	const := graph const: 'const' value: template.
-	same1 := const alias: 'another_name'.
-	same2 := graph operationNamed: 'another_name'.
-	
-	result := (TF_Session on: graph) runOutput: (same1 output: 0).
-	
-	self assert: template shape equals: result shape.
-	self assert: #(1 2 3 4 5 6) equals: result allFloats.
-	
-	result := (TF_Session on: graph) runOutput: (same2 output: 0).
-	
-	self assert: template shape equals: result shape.
-	self assert: #(1 2 3 4 5 6) equals: result allFloats.
-	
-
 ]
 
 { #category : #'unary operations' }

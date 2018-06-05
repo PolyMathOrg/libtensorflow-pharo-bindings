@@ -42,6 +42,18 @@ TensorFlowCAPI class >> example2 [
 	result asNumbers
 ]
 
+{ #category : #examples }
+TensorFlowCAPI class >> example3 [
+	"Return a 3D tensor with 1 million elements filled with 0"
+
+	| graph zeros session result |
+	graph := TF_Graph create.
+	zeros := graph zerosShaped: #(100 100 100).
+	session := TF_Session on: graph.
+	result := session runOutput: (zeros output: 0).
+	result asNumbers
+]
+
 { #category : #tensor }
 TensorFlowCAPI >> allocateTensorType: anInteger shape: aLongLongArray rank: dimCount length: len [
 	"TF_CAPI_EXPORT extern TF_Tensor* TF_AllocateTensor(TF_DataType,
