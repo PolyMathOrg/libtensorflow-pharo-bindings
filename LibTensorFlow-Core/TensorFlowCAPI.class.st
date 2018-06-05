@@ -12,6 +12,36 @@ TensorFlowCAPI class >> current [
 	^ current ifNil: [ current := self uniqueInstance ]
 ]
 
+{ #category : #examples }
+TensorFlowCAPI class >> example1 [
+	"Add two float numbers"
+
+	| graph c1 c2 sum session result |
+	graph := TF_Graph create.
+	c1 := graph const: 'c1' value: 3.0 asTensor.
+	c2 := graph const: 'c2' value: 4.0 asTensor.
+	sum := c1 + c2.
+	session := TF_Session on: graph.
+	result := session runOutput: (sum output: 0).
+	result asNumbers 
+]
+
+{ #category : #examples }
+TensorFlowCAPI class >> example2 [
+	"Multiply two float matrices"
+
+	| graph t1 t2 c1 c2 mult session result |
+	graph := TF_Graph create.
+	t1 := TF_Tensor fromFloats: #(1 2 3 4) shape: #(2 2).
+	t2 := TF_Tensor fromFloats: #(5 6 7 8) shape: #(2 2).
+	c1 := graph const: 'c1' value: t1.
+	c2 := graph const: 'c2' value: t2.
+	mult := c1 * c2.
+	session := TF_Session on: graph.
+	result := session runOutput: (mult output: 0).
+	result asNumbers
+]
+
 { #category : #tensor }
 TensorFlowCAPI >> allocateTensorType: anInteger shape: aLongLongArray rank: dimCount length: len [
 	"TF_CAPI_EXPORT extern TF_Tensor* TF_AllocateTensor(TF_DataType,
