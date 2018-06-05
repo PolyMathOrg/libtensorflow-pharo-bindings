@@ -68,11 +68,6 @@ TF_Operation >> @/ aTF_Operation [
 	^ self binaryOp: 'Div' with: aTF_Operation
 ]
 
-{ #category : #accessing }
-TF_Operation >> InputsCount [
-	^ self library operationNumInputs: self
-]
-
 { #category : #'ops binary' }
 TF_Operation >> \* aTF_Operation [
 	^ self
@@ -273,6 +268,13 @@ TF_Operation >> identity [
 { #category : #accessing }
 TF_Operation >> input: indexInteger [
 	^ TF_Input onOperation: self index: indexInteger
+]
+
+{ #category : #accessing }
+TF_Operation >> inputsCount [
+	"Returns number of inputs of this operation"
+	
+	^ self library operationNumInputs: self
 ]
 
 { #category : #attributes }

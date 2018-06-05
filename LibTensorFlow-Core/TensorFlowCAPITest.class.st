@@ -1180,7 +1180,7 @@ TensorFlowCAPITest >> testGetOperationOnConstantGraph [
 	op := graph operationNamed: 'a'.
 	self assert: op name equals: 'a'.
 	self assert: op type equals: 'Const'.
-	self assert: op InputsCount equals: 0.
+	self assert: op inputsCount equals: 0.
 	self assert: op outputsCount equals: 1
 ]
 
@@ -1207,7 +1207,7 @@ TensorFlowCAPITest >> testGraphCreationConst [
 	operation := graph operationNamed: 'a'.
 	self assert: operation type equals: 'Const'.
 	self assert: operation name equals: 'a'.
-	self assert: operation InputsCount equals: 0.
+	self assert: operation inputsCount equals: 0.
 	self assert: operation outputsCount equals: 1.
 
 ]
@@ -1593,12 +1593,12 @@ TensorFlowCAPITest >> testNewOperationMul [
 			description addInputFromOutput: 0 of: b ].
 	self assert: operation type equals: 'Mul'.
 	self assert: operation name equals: 'aMultiplication'.
-	self assert: operation InputsCount equals: 2.
+	self assert: operation inputsCount equals: 2.
 	self assert: operation outputsCount equals: 1.
 	operation := graph operationNamed: 'aMultiplication'.
 	self assert: operation type equals: 'Mul'.
 	self assert: operation name equals: 'aMultiplication'.
-	self assert: operation InputsCount equals: 2.
+	self assert: operation inputsCount equals: 2.
 	self assert: operation outputsCount equals: 1
 ]
 
@@ -1611,12 +1611,12 @@ TensorFlowCAPITest >> testNewOperationPlaceholder [
 		type: TF_Tensor typeInt64.
 	self assert: operation type equals: 'Placeholder'.
 	self assert: operation name equals: 'aPlaceholder'.
-	self assert: operation InputsCount equals: 0.
+	self assert: operation inputsCount equals: 0.
 	self assert: operation outputsCount equals: 1.
 	operation := graph operationNamed: 'aPlaceholder'.
 	self assert: operation type equals: 'Placeholder'.
 	self assert: operation name equals: 'aPlaceholder'.
-	self assert: operation InputsCount equals: 0.
+	self assert: operation inputsCount equals: 0.
 	self assert: operation outputsCount equals: 1
 ]
 

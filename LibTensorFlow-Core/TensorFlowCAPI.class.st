@@ -600,10 +600,10 @@ TensorFlowCAPI >> operationName: aTF_Operation [
 
 { #category : #operation }
 TensorFlowCAPI >> operationNumInputs: aTF_Operation [
-	"<cdecl: long 'TF_OperationNumInputs' (TF_Operation*)>"
+	"TF_CAPI_EXPORT extern int TF_OperationNumInputs(TF_Operation* oper);"
 
 	^ self
-		ffiCall: #(long TF_OperationNumInputs #(TF_Operation * aTF_Operation))
+		ffiCall: #(int TF_OperationNumInputs #(TF_Operation * aTF_Operation))
 		module: TensorFlowCAPI
 ]
 
