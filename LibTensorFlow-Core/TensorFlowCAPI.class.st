@@ -32,8 +32,8 @@ TensorFlowCAPI class >> example2 [
 
 	| graph t1 t2 c1 c2 mult session result |
 	graph := TF_Graph create.
-	t1 := TF_Tensor fromFloats: #(1 2 3 4) shape: #(2 2).
-	t2 := TF_Tensor fromFloats: #(5 6 7 8) shape: #(2 2).
+	t1 := TF_Tensor fromFloats: #(#(1 2) #(3 4)).
+	t2 := TF_Tensor fromFloats: #(#(5 6) #(7 8)).
 	c1 := graph const: 'c1' value: t1.
 	c2 := graph const: 'c2' value: t2.
 	mult := c1 * c2.
