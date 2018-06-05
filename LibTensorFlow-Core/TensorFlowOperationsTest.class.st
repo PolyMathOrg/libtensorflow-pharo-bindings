@@ -713,7 +713,7 @@ TensorFlowOperationsTest >> testOperationMatMulWrongType [
 { #category : #'unary operations' }
 TensorFlowOperationsTest >> testOperationMatrixInverse [
 	| graph template session const result identity inverse |
-	template := TF_Tensor fromFloats: #(#(-1.1 1.2) #(-2.1 -2.2)).
+	template := TF_Tensor fromFloats: #((-1.1 1.2) (-2.1 -2.2)).
 	graph := TF_Graph create.
 	const := graph const: 'const' value: template.
 	inverse := const inverse.

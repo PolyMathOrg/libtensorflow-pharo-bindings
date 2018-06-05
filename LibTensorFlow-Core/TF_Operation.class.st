@@ -30,12 +30,21 @@ TF_Operation >> + aTF_Operation [
 ]
 
 { #category : #'ops binary' }
+TF_Operation >> += aTF_Operation [
+	"Update self by adding a value"
+
+	^ self binaryOp: 'AssignAdd' with: aTF_Operation
+]
+
+{ #category : #'ops binary' }
 TF_Operation >> - aTF_Operation [
 	^ self binaryOp: 'Sub' with: aTF_Operation
 ]
 
 { #category : #'ops binary' }
 TF_Operation >> -= aTF_Operation [
+"Update self by subtracting a value"
+
 	^ self binaryOp: 'AssignSub' with: aTF_Operation
 ]
 
@@ -84,6 +93,7 @@ TF_Operation >> \*\ aTF_Operation [
 
 { #category : #'ops binary' }
 TF_Operation >> \\ aTF_Operation [
+"Returns element-wise remainder of division"
 	^ self binaryOp: 'Mod' with: aTF_Operation
 ]
 
