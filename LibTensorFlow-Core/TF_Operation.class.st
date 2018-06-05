@@ -370,9 +370,17 @@ TF_Operation >> printOn: stream [
 
 { #category : #'ops unary' }
 TF_Operation >> rectified [
-	"Computes rectified linear: max(features, 0)"
+	"Computes rectified linear: f(x) = max(x, 0)"
+	"https://en.wikipedia.org/wiki/Rectifier_(neural_networks)"
 
 	^ self unaryOp: 'Relu'
+]
+
+{ #category : #'ops unary' }
+TF_Operation >> rectified6 [
+	"Computes rectified linear 6: f(x) = min(max(x, 0), 6)"
+
+	^ self unaryOp: 'Relu6'
 ]
 
 { #category : #'ops unary' }
