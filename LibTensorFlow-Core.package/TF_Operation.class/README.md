@@ -1,1 +1,0 @@
-Operation that has been added to the graph. Valid until the graph is deleted -- in particular adding a new operation to the graph does not  invalidate old TF_Operation* pointers.

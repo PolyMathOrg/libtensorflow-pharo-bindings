@@ -1,3 +1,0 @@
-converting
-asTensor
-	^ self subclassResponsibility 

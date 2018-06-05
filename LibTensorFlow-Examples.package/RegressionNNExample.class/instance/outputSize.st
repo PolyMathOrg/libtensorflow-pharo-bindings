@@ -1,3 +1,0 @@
-accessing
-outputSize
-	^ 1

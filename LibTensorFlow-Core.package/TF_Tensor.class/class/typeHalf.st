@@ -1,3 +1,0 @@
-types
-typeHalf
-	^ 19

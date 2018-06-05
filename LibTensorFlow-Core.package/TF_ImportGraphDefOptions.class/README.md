@@ -1,1 +1,0 @@
-TF_ImportGraphDefOptions holds options that can be passed to TF_GraphImportGraphDef.

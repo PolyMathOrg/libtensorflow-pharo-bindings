@@ -1,1 +1,0 @@
-Represents a specific output of an operation.

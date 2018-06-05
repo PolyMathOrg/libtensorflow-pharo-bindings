@@ -1,1 +1,0 @@
-TF_Status holds error information.  It either has an OK code, or else an error code with an associated error message.

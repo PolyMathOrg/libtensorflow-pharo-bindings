@@ -1,4 +1,0 @@
-*LibTensorFlow-Core
-getHandle
-
-	^ self

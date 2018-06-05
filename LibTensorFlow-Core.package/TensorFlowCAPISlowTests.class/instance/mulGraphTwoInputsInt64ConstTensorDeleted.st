@@ -1,3 +1,0 @@
-testing tensor
-mulGraphTwoInputsInt64ConstTensorDeleted
-	^ TensorFlowCAPITest new mulGraphTwoInputsInt64ConstTensorDeleted

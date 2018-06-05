@@ -1,3 +1,0 @@
-types
-typeString
-	^7

@@ -1,3 +1,0 @@
-private
-library
-	^ TensorFlowCAPI current

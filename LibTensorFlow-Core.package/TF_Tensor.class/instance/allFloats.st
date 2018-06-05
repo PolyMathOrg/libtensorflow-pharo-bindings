@@ -1,3 +1,0 @@
-converting
-allFloats
-	^ self allElements

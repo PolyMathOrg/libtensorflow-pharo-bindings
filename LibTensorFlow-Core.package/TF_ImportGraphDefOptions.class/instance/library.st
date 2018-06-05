@@ -1,3 +1,0 @@
-release
-library
-	^ TensorFlowCAPI current

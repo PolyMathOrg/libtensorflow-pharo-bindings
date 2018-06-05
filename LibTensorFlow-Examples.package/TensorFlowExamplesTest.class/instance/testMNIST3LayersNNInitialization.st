@@ -1,3 +1,0 @@
-testing MNIST
-testMNIST3LayersNNInitialization
-	MNIST3LayersNNExamplePlan new.

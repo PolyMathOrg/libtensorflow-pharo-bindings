@@ -1,3 +1,0 @@
-testing operation
-testFloatAsStringGraphCreate
-	self floatAsStringGraph
