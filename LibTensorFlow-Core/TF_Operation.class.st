@@ -60,11 +60,15 @@ TF_Operation >> > aTF_Operation [
 
 { #category : #'ops binary' }
 TF_Operation >> @* aTF_Operation [
+	"Returns x * y element-wise"
+	
 	^ self binaryOp: 'Mul' with: aTF_Operation
 ]
 
 { #category : #'ops binary' }
 TF_Operation >> @/ aTF_Operation [
+	"Returns x / y element-wise"
+
 	^ self binaryOp: 'Div' with: aTF_Operation
 ]
 
@@ -88,7 +92,8 @@ TF_Operation >> \*\ aTF_Operation [
 
 { #category : #'ops binary' }
 TF_Operation >> \\ aTF_Operation [
-"Returns element-wise remainder of division"
+	"Returns element-wise remainder of division"
+	
 	^ self binaryOp: 'Mod' with: aTF_Operation
 ]
 
