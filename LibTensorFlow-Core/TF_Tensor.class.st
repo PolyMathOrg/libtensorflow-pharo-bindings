@@ -621,6 +621,12 @@ TF_Tensor >> library [
 	^ TensorFlowCAPI current
 ]
 
+{ #category : #printing }
+TF_Tensor >> printOn: aStream [
+	super printOn: aStream.
+	handle ifNotNil: [ aStream nextPut: Character space; nextPutAll: self asNumbers asString ]
+]
+
 { #category : #accessing }
 TF_Tensor >> rank [
 	^ self library tensorRank: self
