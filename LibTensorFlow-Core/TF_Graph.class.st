@@ -126,6 +126,8 @@ TF_Graph >> finalize [
 
 { #category : #'initialize-release' }
 TF_Graph >> fromBlock: aBlockClosure [
+	"Create operations from a block"
+
 	| types |
 	types := Array new: aBlockClosure argumentCount.
 	types atAllPut: TF_Tensor typeFloat.
