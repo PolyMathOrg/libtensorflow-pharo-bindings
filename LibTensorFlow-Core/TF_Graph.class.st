@@ -163,6 +163,24 @@ TF_Graph >> fromBlock: aBlockClosure named: nameString [
 	^ self fromBlock: aBlockClosure inputTypes: types named: nameString
 ]
 
+{ #category : #gtInspector }
+TF_Graph >> gtInspectorGraphIn: composite [
+	<gtInspectorPresentationOrder: 30>
+	
+	composite roassal2
+		title: 'DataFlow';
+		painting: [ :view|
+					|operations lab nodes|
+					operations := self allOperations.
+					lab := RTLabel new.
+					nodes := ((RTEllipse new size: 15; color:((Color blue alpha: 0.4))) + (lab text: [ :op | op name])) elementsOn: operations.
+					nodes @ RTDraggable.
+					view addAll: nodes.
+					(RTLayoutBuilder new forceWithCharge: -450) on: view elements.
+					view
+					]
+]
+
 { #category : #'initialize-release' }
 TF_Graph >> import: aTF_Buffer [
 	| options status |
