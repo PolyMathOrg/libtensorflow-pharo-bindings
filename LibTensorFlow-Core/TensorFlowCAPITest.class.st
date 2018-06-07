@@ -1350,7 +1350,7 @@ TensorFlowCAPITest >> testGraphNotFinalizedWhenHeldByOperations [
 	self assert: in2 name equals: 'in2'.
 	self assert: add name equals: 'add'.
 	graph := self mulGraphTwoInputsInt64.
-	graph delete.
+	"graph delete."
 	self assert: in1 name equals: 'in1'.
 	self assert: in2 name equals: 'in2'.
 	self assert: add name equals: 'add'
@@ -1453,7 +1453,6 @@ TensorFlowCAPITest >> testGraphRunOutputs [
 	graph := TF_Graph create.
 	output1 := graph const: TF_Tensor pi.
 	output2 := output1 @/ 2.0 asTensor.
-	self halt.
 	results := graph
 		runOutputs:
 			{output1 output.
