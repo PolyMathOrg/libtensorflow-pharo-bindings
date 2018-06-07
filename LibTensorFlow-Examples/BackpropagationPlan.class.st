@@ -64,9 +64,12 @@ BackpropagationPlan >> initializeGraph [
 
 { #category : #initialization }
 BackpropagationPlan >> initializeVariables [
-	| initialWeights |
+	| initialWeights random |
+"Was used in Cuis: 
 	Random withDefaultDo: [:random |
-		initialWeights := (1 to: 4) collect: [:unused | random next]].
+		initialWeights := (1 to: 4) collect: [:unused | random next]]."
+	random := Random new.
+	initialWeights := (1 to: 4) collect: [:unused | random next].
 	initialWeights := TF_Tensor fromFloats: initialWeights shape: #(2 2).
 	
 	weights := graph variable: 'weights' initialValue: initialWeights.
