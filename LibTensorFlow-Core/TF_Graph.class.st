@@ -186,8 +186,7 @@ TF_Graph >> gtInspectorGraphIn: composite [
 						output := TensorFlowCAPI uniqueInstance operationInput: (op input: index).
 						op1 := TF_Operation fromHandle: output operation.
 						op2 := (operations select: [:op| op name = op1 name]) at:1.
-						edges add: op2 -> op.
-						self halt] ].
+						edges add: op2 -> op] ].
 			RTEdgeBuilder new
 				view: view;
 				shape:
