@@ -145,7 +145,7 @@ TensorFlowExamplesSlowTest >> testSinglePointRegression [
 	y := function value: x.
 	100 timesRepeat:[net predict: {{x}} andLearnFrom:{{y}}].
 	results := net predict: {{x}} andCompareTo: {{y}}.
-	loss := results numbersAt: 2.
+	loss := (results at: 2) asNumbers.
 	self assert: loss first closeTo: 0.
 	
 ]
@@ -163,7 +163,7 @@ TensorFlowExamplesSlowTest >> testTwoPointsRegression [
 		index := interval atRandom.
 		net predict: {xs at: index} andLearnFrom:{ys at: index}].
 	results := net predict: xs andCompareTo: ys.
-	loss := results numbersAt: 2.
+	loss := (results at: 2) asNumbers.
 	self assert: loss first closeTo: 0.
 	
 ]
