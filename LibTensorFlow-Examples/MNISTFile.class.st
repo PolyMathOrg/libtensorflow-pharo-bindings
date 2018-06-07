@@ -25,14 +25,21 @@ MNISTFile class >> download: aName [
 
 { #category : #'instance creation' }
 MNISTFile class >> fromFile: aString [
-	| file filename stream compressed|
+	| file filename reader compressed|
 	filename := aString, '.gz'.
 	file := ('dataset/', filename) asFileReference.
 	file exists ifFalse:[ file := self download: filename].
-	compressed := file readStream.
-	stream := (GZipReadStream on: compressed) upToEnd asByteArray readStream.
-	^ self fromStream: stream
+	compressed := file binaryReadStream.
+	reader := IdxReader onStream: ((GZipReadStream on: compressed) upToEnd asByteArray readStream).
+	^ self fromReader: reader
 	
+]
+
+{ #category : #'instance creation' }
+MNISTFile class >> fromReader: aReader [
+	| answer |
+	answer := self new.
+	^ answer parse: aReader
 ]
 
 { #category : #'instance creation' }
@@ -90,9 +97,6 @@ MNISTFile >> magic [
 ]
 
 { #category : #initialization }
-MNISTFile >> parse: aStream [
-	magic := aStream nextUnsignedInt32BigEndian: true.
-	count :=  aStream nextUnsignedInt32BigEndian: true.
-
-	
+MNISTFile >> parse: aReader [
+	count := (aReader dimensionSizes) at:1
 ]

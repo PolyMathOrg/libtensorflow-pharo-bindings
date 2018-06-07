@@ -25,14 +25,14 @@ MNISTImageFile class >> trainName [
 
 { #category : #converting }
 MNISTImageFile >> asTensor [
-	^  TF_Tensor fromFloats:  items shape: {count. rows * columns}.
+	^  TF_Tensor fromFloats: items shape: {count. rows * columns}.
 ]
 
 { #category : #accessing }
 MNISTImageFile >> at: imageIndex [
 	| bytes |
 	bytes := self bytesAt: imageIndex.
-	^ Form extent: rows @ columns bits: bytes
+	^ Form extent: rows @ columns depth:1 bits: bytes
 ]
 
 { #category : #accessing }
@@ -54,11 +54,11 @@ MNISTImageFile >> columns [
 ]
 
 { #category : #initialization }
-MNISTImageFile >> parse: aStream [
-	super parse: aStream.
-	rows := aStream nextUnsignedInt32BigEndian: true.
-	columns := aStream nextUnsignedInt32BigEndian: true.
-	items := aStream upToEnd.
+MNISTImageFile >> parse: aReader [
+	super parse: aReader.
+	rows := (aReader dimensionSizes) at:2.
+	columns := (aReader dimensionSizes) at:3.
+	items := aReader next
 ]
 
 { #category : #accessing }

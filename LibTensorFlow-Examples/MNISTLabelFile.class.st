@@ -35,9 +35,9 @@ MNISTLabelFile >> at: base take: batchSize [
 ]
 
 { #category : #initialization }
-MNISTLabelFile >> parse: aStream [
-	super parse: aStream.
-	items := aStream upToEnd.
+MNISTLabelFile >> parse: aReader [
+	super parse: aReader.
+	items := aReader next
 	
 	
 ]

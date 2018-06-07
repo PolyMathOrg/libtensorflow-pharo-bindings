@@ -8,6 +8,11 @@ Class {
 	#category : 'LibTensorFlow-Examples'
 }
 
+{ #category : #accessing }
+TensorFlowExamplesSlowTest class >> defaultTimeLimit [
+	^ 5 minutes
+]
+
 { #category : #initialization }
 TensorFlowExamplesSlowTest >> setUp [
 	| imageSet labelSet n |
@@ -42,14 +47,6 @@ TensorFlowExamplesSlowTest >> testLabels [
 	
 	self assert: test count equals: 10000.
 	self assert: training count equals: 60000.
-]
-
-{ #category : #'testing - MNIST files' }
-TensorFlowExamplesSlowTest >> testMagic [
-	images := MNISTImageFile testSet.
-	labels := MNISTLabelFile testSet.
-	self assert: images magic equals: MNISTImageFile magic.
-	self assert: labels magic equals: MNISTLabelFile magic
 ]
 
 { #category : #'testing - MNIST - SoftMax' }
