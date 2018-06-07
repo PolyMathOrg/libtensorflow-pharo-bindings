@@ -46,7 +46,6 @@ TensorFlowExamplesSlowTest >> testLabels [
 
 { #category : #'testing - MNIST files' }
 TensorFlowExamplesSlowTest >> testMagic [
-	| images labels |
 	images := MNISTImageFile testSet.
 	labels := MNISTLabelFile testSet.
 	self assert: images magic equals: MNISTImageFile magic.
