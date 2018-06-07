@@ -43,8 +43,7 @@ TF_AttrMetadata >> isInt [
 
 { #category : #'accessing structure variables' }
 TF_AttrMetadata >> isList [
-
-^ self isList = 1
+	^ self is_list = 1
 ]
 
 { #category : #types }
