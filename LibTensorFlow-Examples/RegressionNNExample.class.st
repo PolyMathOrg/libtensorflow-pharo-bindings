@@ -40,20 +40,31 @@ RegressionNNExample class >> exampleFunction [
 
 { #category : #examples }
 RegressionNNExample class >> exampleTrainedAndPlot [
-	" self exampleTrainedAndPlot "
-	| function net predictor g |
-	function :=  self exampleFunction.
+	| function net predictor xValues b ds |
+	function := self exampleFunction.
 	net := self exampleTrainedOn: function.
-	predictor := [:x |
-		| result |
-		result := net predict: {{x}}.
-		result asNumbers first first] .
-	
-	g := FunctionGraphMorph new.
-	g domain: (0 to: 1).
-	g addFunction: function color: Color green.
-	g addFunction: predictor color: Color red.
-	(g embeddedInMorphicWindowLabeled: 'graph') openInWorld.
+	predictor := [ :x | 
+	| result |
+	result := net predict: {{x}}.
+	result asNumbers first first ].
+	xValues := 0 to: 1.0 by: 0.01.
+	b := RTGrapher new.
+	b extent: 300 @ 200.
+	ds := RTData new.
+	ds noDot.
+	ds points: xValues.
+	ds y: predictor.
+	ds x: #yourself.
+	ds connectColor: Color green.
+	b add: ds.
+	ds := RTData new.
+	ds noDot.
+	ds points: xValues.
+	ds y: function.
+	ds x: #yourself.
+	ds connectColor: Color red.
+	b add: ds.
+	b open.
 	^ net
 ]
 
