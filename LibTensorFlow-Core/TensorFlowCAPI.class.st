@@ -592,6 +592,13 @@ TensorFlowCAPI >> operationDevice: aTF_Operation [
 ]
 
 { #category : #operation }
+TensorFlowCAPI >> operationInput: aTF_Input [
+	"TF_CAPI_EXPORT extern TF_Output TF_OperationInput(TF_Input oper_in);"
+
+	^ self ffiCall: #(TF_Output TF_OperationInput #(TF_Input aTF_Input)) module: TensorFlowCAPI
+]
+
+{ #category : #operation }
 TensorFlowCAPI >> operationName: aTF_Operation [
 	"<cdecl: char* 'TF_OperationName' (TF_Operation*)>"
 
