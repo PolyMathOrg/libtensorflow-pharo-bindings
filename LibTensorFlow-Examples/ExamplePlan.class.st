@@ -32,7 +32,6 @@ ExamplePlan >> initializeSession [
 { #category : #running }
 ExamplePlan >> runOn: inputValues [
 	| results |	
-		
 	results := session
 		runInputs: inputs
 		values: inputValues

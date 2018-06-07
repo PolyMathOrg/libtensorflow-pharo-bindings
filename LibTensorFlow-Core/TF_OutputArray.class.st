@@ -20,6 +20,5 @@ aCollection withIndexDo: [ :each :index | answer at: index put: each ].
 
 { #category : #accessing }
 TF_OutputArray class >> type [
-
-^'TF_Output'
+	^ TF_Output
 ]

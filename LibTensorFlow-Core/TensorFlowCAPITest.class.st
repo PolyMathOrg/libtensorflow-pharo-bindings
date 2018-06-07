@@ -1434,8 +1434,7 @@ TensorFlowCAPITest >> testGraphRunInputsOutputs [
 	result := graph
 		runInputs: {input input: 0}
 		values: {7.23 asTensor}
-		outputs: {output output}.
-	
+		outputs: {output output}.	
 	self assert: Float pi * 7.23 closeTo: result first asNumbers.
 ]
 
@@ -1967,7 +1966,6 @@ TensorFlowCAPITest >> testRunGraphMulTwoInputsRunInputsOutputs [
 		values: inputValues
 		outputs: {output}.
 	
-	self deny: results isNull.
 	self deny: results first isNull.
 	self deny: results first data isNull.
 	self assert: (results first data getHandle signedLongLongAt: 1) equals: 16r4242424242424242

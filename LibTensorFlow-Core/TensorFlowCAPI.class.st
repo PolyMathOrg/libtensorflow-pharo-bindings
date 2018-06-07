@@ -23,7 +23,7 @@ TensorFlowCAPI class >> example1 [
 	sum := c1 + c2.
 	session := TF_Session on: graph.
 	result := session runOutput: (sum output: 0).
-	result asNumbers 
+	result asNumbers
 ]
 
 { #category : #examples }
@@ -640,14 +640,7 @@ TensorFlowCAPI >> primStringEncodedSize: anInteger [
 ]
 
 { #category : #session }
-TensorFlowCAPI >> runSession: aTF_Session
-	options: opsTF_Buffer
-	inputs: inTF_OutputArray values: inTF_TensorArray count: inCount
-	outputs: outTF_OutputArray values: outTF_TensorArrayPtr count: outCount
-	targets: aTF_OperationArray count: targetCount
-	metadata: metaTF_Buffer
-	status: aTF_Status [
-	
+TensorFlowCAPI >> runSession: aTF_Session options: opsTF_Buffer inputs: inTF_OutputArray values: inTF_TensorArray count: inCount outputs: outTF_OutputArray values: outTF_TensorArrayPtr count: outCount targets: aTF_OperationArray count: targetCount metadata: metaTF_Buffer status: aTF_Status [
 	"F_CAPI_EXPORT extern void TF_SessionRun(
     TF_Session* session,
     // RunOptions
@@ -662,10 +655,12 @@ TensorFlowCAPI >> runSession: aTF_Session
     TF_Buffer* run_metadata,
     // Output status
 TF_Status*);"
-		
-		^ self
-		ffiCall: #(void TF_SessionRun #(TF_Session * aTF_Session, TF_Buffer * opsTF_Buffer, void * inTF_OutputArray, void * inTF_TensorArray, int inCount, void * outTF_OutputArray, void * outTF_TensorArrayPtr, int outCount, void * aTF_OperationArray, int targetCount, TF_Buffer * metaTF_Buffer, TF_Status * aTF_Status))
-		module: TensorFlowCAPI
+
+	^ self
+		ffiCall:
+			#(void TF_SessionRun #(TF_Session * aTF_Session , TF_Buffer * opsTF_Buffer , void * inTF_OutputArray , void * inTF_TensorArray , int inCount , void * outTF_OutputArray , void * outTF_TensorArrayPtr , int outCount , void * aTF_OperationArray , int targetCount , TF_Buffer * metaTF_Buffer , TF_Status * aTF_Status))
+		module:
+			TensorFlowCAPI
 ]
 
 { #category : #options }
