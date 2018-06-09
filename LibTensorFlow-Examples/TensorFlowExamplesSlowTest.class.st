@@ -16,6 +16,7 @@ TensorFlowExamplesSlowTest class >> defaultTimeLimit [
 { #category : #initialization }
 TensorFlowExamplesSlowTest >> setUp [
 	| imageSet labelSet n |
+	super setUp.
 	imageSet := MNISTImageFile testSet.
 	labelSet := MNISTLabelFile testSet.
 	n := 2.

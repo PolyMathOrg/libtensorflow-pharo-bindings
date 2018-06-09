@@ -55,7 +55,7 @@ TF_OperationDescription >> addInputFromOutput: indexInteger of: aTF_Operation [
 { #category : #inputs }
 TF_OperationDescription >> addInputs: anArrayOfTF_Output [
 	| inputs |
-	inputs := TF_OutputArrayOld externalFromArray: anArrayOfTF_Output.
+	inputs := TF_OutputArray fromCollection: anArrayOfTF_Output.
 	self library description: self addInputs: inputs size: anArrayOfTF_Output size
 ]
 
