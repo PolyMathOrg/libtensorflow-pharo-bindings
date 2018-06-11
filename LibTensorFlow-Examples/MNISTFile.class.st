@@ -2,11 +2,10 @@ Class {
 	#name : #MNISTFile,
 	#superclass : #Object,
 	#instVars : [
-		'magic',
 		'count',
 		'items'
 	],
-	#category : 'LibTensorFlow-Examples'
+	#category : #'LibTensorFlow-Examples'
 }
 
 { #category : #private }
@@ -89,11 +88,6 @@ MNISTFile >> count [
 { #category : #accessing }
 MNISTFile >> items [
 	^ items
-]
-
-{ #category : #accessing }
-MNISTFile >> magic [
-	^ magic
 ]
 
 { #category : #initialization }

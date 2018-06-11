@@ -29,17 +29,10 @@ MNISTImageFile >> asTensor [
 ]
 
 { #category : #accessing }
-MNISTImageFile >> at: imageIndex [
-	| bytes |
-	bytes := self bytesAt: imageIndex.
-	^ Form extent: rows @ columns depth:1 bits: bytes
-]
-
-{ #category : #accessing }
 MNISTImageFile >> bytesAt: imageIndex [
 	| size base |
 	size := columns * rows.
-	base := imageIndex - 1 * size + 1.
+	base := (imageIndex - 1) * size + 1.
 	^ items copyFrom: base to: base + size - 1.
 ]
 
@@ -53,12 +46,20 @@ MNISTImageFile >> columns [
 	^ columns
 ]
 
+{ #category : #accessing }
+MNISTImageFile >> formAt: imageIndex [
+	| bytes |
+	bytes := self bytesAt: imageIndex.
+	^ Form extent: rows @ columns depth: 1 bits: bytes
+]
+
 { #category : #initialization }
 MNISTImageFile >> parse: aReader [
 	super parse: aReader.
-	rows := (aReader dimensionSizes) at:2.
-	columns := (aReader dimensionSizes) at:3.
-	items := aReader next
+	rows := (aReader dimensionSizes) second.
+	columns := (aReader dimensionSizes) third.
+	items := aReader next.
+	items := (items flatCollect: [:each | each ]) flatCollect:[:each | each]
 ]
 
 { #category : #accessing }

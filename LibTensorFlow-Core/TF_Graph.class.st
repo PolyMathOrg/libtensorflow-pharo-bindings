@@ -185,8 +185,8 @@ TF_Graph >> gtInspectorGraphIn: composite [
 					0 to: nbInputs - 1 do: [ :index | 
 						output := TensorFlowCAPI uniqueInstance operationInput: (op input: index).
 						op1 := TF_Operation fromHandle: output operation.
-						op2 := (operations select: [:op| op name = op1 name]) at:1.
-						edges add: op2 -> op] ].
+						op2 := (operations select: [ :opx | opx name = op1 name ]) at: 1.
+						edges add: op2 -> op ] ].
 			RTEdgeBuilder new
 				view: view;
 				shape:
@@ -194,7 +194,7 @@ TF_Graph >> gtInspectorGraphIn: composite [
 						color: Color black;
 						attachPoint: RTBorderAttachPoint new);
 				source: edges connectFrom: #key to: #value.
-			(RTLayoutBuilder new forceWithCharge: -450) on: view elements.
+			(RTLayoutBuilder new forceWithCharge: -600) on: view elements.
 			view ]
 ]
 
