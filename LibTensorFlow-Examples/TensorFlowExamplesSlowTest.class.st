@@ -37,7 +37,7 @@ TensorFlowExamplesSlowTest >> testImages [
 	self assert: training rows equals: 28.
 	self assert: training columns equals: 28.
 	self assert: testing asTensor shape equals: {10000. 28*28}.
-	self assert: training asTensor shape equals: {60000. 28*28}.
+	self assert: training asTensor shape equals: {60000. 28*28}
 ]
 
 { #category : #'testing - MNIST files' }
@@ -76,7 +76,7 @@ TensorFlowExamplesSlowTest >> testPrediction3Layers [
 	self deny: (loss first closeTo: 0).
 	100 timesRepeat: [ |interval index im lb|
 		interval := 1 to: images size.
-		index := interval collect:[:i| interval atRandom].
+		index := interval shuffled.
 		im := index collect:[:i| images at: i].
 		lb := index collect:[:i| labels at: i].
 		plan predict: im andLearnFrom: lb].
@@ -105,13 +105,13 @@ TensorFlowExamplesSlowTest >> testPrediction3LayersSigmoid [
 	loss := (result at:2) asNumbers.
 	self assert: (loss < 1).
 	prediction := plan predict: images.
-	self assert: prediction asNumbers equals: labels.
+	self assert: prediction asNumbers equals: labels
 
 ]
 
 { #category : #'testing - MNIST - SoftMax' }
 TensorFlowExamplesSlowTest >> testPredictionMany [
-	| imageSet images labelSet labels loss plan result prediction n |
+	| imageSet labelSet loss plan result prediction n |
 	n := 200.
 	
 	plan := MNISTSoftMaxExamplePlan new.

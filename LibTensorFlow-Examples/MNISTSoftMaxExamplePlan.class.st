@@ -26,7 +26,7 @@ MNISTSoftMaxExamplePlan >> initialize [
 		initializeInferenceGraph;
 		initializeLossGraph;
 		initializeLearningGraph;
-		initializeSession.
+		initializeSession
 ]
 
 { #category : #initialization }
