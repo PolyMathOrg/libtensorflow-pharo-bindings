@@ -17,8 +17,8 @@ TensorFlowExamplesSlowTest class >> defaultTimeLimit [
 TensorFlowExamplesSlowTest >> setUp [
 	| imageSet labelSet n |
 	super setUp.
-	imageSet := MNISTImageFile testSet.
-	labelSet := MNISTLabelFile testSet.
+	imageSet := MNISTImageFile trainingSet.
+	labelSet := MNISTLabelFile trainingSet.
 	n := 2.
 	images := (1 to: n) collect: [ :i | imageSet bytesAt: i ].
 	labels := (1 to: n) collect: [ :i | labelSet at: i ]
@@ -97,7 +97,7 @@ TensorFlowExamplesSlowTest >> testPrediction3LayersSigmoid [
 	self deny: (loss first closeTo: 0).
 	100 timesRepeat: [ |interval index im lb|
 		interval := 1 to: images size.
-		index := interval collect:[:i| interval atRandom].
+		index := interval shuffled.
 		im := index collect:[:i| images at: i].
 		lb := index collect:[:i| labels at: i].
 		plan predict: im andLearnFrom: lb].
@@ -115,8 +115,8 @@ TensorFlowExamplesSlowTest >> testPredictionMany [
 	n := 200.
 	
 	plan := MNISTSoftMaxExamplePlan new.
-	imageSet := MNISTImageFile testSet.
-	labelSet := MNISTLabelFile testSet.
+	imageSet := MNISTImageFile trainingSet.
+	labelSet := MNISTLabelFile trainingSet.
 	
 	images := (1 to: n) collect: [:i | imageSet bytesAt: i].
 	labels := (1 to: n) collect: [:i | labelSet at: i].

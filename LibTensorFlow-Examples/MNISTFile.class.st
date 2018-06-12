@@ -41,18 +41,6 @@ MNISTFile class >> fromReader: aReader [
 	^ answer parse: aReader
 ]
 
-{ #category : #'instance creation' }
-MNISTFile class >> fromStream: aStream [
-	| answer |
-	answer := self new.
-	^ answer parse: aStream
-]
-
-{ #category : #accessing }
-MNISTFile class >> magic [
-	^ self subclassResponsibility 
-]
-
 { #category : #accessing }
 MNISTFile class >> testName [
 	^ self subclassResponsibility 
