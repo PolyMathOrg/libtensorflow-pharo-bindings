@@ -93,7 +93,7 @@ TensorFlowExamplesTest >> testBackpropagationPlanBackguardConverges [
 	result := (plan runOn: {inputs}) allFloats.
 	
 	self assert: (result first closeTo: 0.5).
-	self assert: (result second closeTo: 0.5).
+	self assert: (result second closeTo: 0.5)
 
 ]
 
