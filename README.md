@@ -16,4 +16,8 @@ On MacOS, you can do :
 macModuleName
   ^ '/usr/local/Cellar/libtensorflow/1.7.0/lib/libtensorflow.so'
 ```
-
+- Fix the following method (or you will have crashes):
+```Smalltalk
+FFIExternalStructureType>>basicHandle: aHandle at: index put: value
+	^ LibC memCopy: value getHandle to: aHandle + (index - 1) size: self externalTypeSize
+  ```
