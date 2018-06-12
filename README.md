@@ -14,7 +14,7 @@ On MacOS, you can do :
 - modify ```TensorFlowCAPI>>macModulename```to put the path to where Tensorflow libraries are located on your computer:
 ```Smalltalk
 macModuleName
-  ^ '/usr/local/Cellar/libtensorflow/1.7.0/lib/libtensorflow.so'
+  ^ '/usr/local/Cellar/libtensorflow/1.8.0/lib/libtensorflow.so'
 ```
 - Fix the following method (or you will have crashes):
 ```Smalltalk
