@@ -19,7 +19,7 @@ FFIExternalStructureType>>basicHandle: aHandle at: index put: value
 ```brew install tensorflow```
 - modify ```TensorFlowCAPI>>macModulename```to put the path to where Tensorflow libraries are located on your computer:
 ```Smalltalk
-macModuleName
+TensorFlowCAPI>>macModulename
   ^ '/usr/local/Cellar/libtensorflow/1.8.0/lib/libtensorflow.so'
   ```
 ## Installation of TensorFlow on Windows
