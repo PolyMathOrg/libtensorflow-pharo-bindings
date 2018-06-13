@@ -6,7 +6,7 @@ You will need a 64 bits Pharo VM in order to run the code. The code has only be 
 
 ## Installation
 
-- Install Pharo 64 bit VM and image from the command line : https://pharo.org/download
+- Install Pharo 7.0 64 bit VM and image from the command line : https://pharo.org/download
 - Fix the following method (or you will have crashes):
 ```Smalltalk
 FFIExternalStructureType>>basicHandle: aHandle at: index put: value
