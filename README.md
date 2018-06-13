@@ -14,11 +14,12 @@ FFIExternalStructureType>>basicHandle: aHandle at: index put: value
   ```
 - Use Iceberg to load the code of this repository
 
-## Installation on MacOS
+## Installation of TensorFlow on MacOS
 - Install TensorFlow on your computer. On macOS, the simpliest way to do that is to use Brew:
 ```brew install tensorflow```
 - modify ```TensorFlowCAPI>>macModulename```to put the path to where Tensorflow libraries are located on your computer:
 ```Smalltalk
 macModuleName
   ^ '/usr/local/Cellar/libtensorflow/1.8.0/lib/libtensorflow.so'
-```
+  ```
+## Installation of TensorFlow on Windows
