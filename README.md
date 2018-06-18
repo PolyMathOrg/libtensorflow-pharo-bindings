@@ -23,3 +23,7 @@ TensorFlowCAPI>>macModulename
   ^ '/usr/local/Cellar/libtensorflow/1.8.0/lib/libtensorflow.so'
   ```
 ## Installation of TensorFlow on Windows
+- Install Tensorflow on your computer. On Windows the easiest way is to use pip:
+```pip install tensorflow```
+- If youwant the GPU version:
+```pip3 install --upgrade tensorflow-gpu```
