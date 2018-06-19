@@ -12,7 +12,7 @@ You will need a 64 bits Pharo VM in order to run the code. The code has only be 
 FFIExternalStructureType>>basicHandle: aHandle at: index put: value
 	^ LibC memCopy: value getHandle to: aHandle + (index - 1) size: self externalTypeSize
   ```
-- Use Iceberg to load the code of this repository
+- Use Iceberg to load the code of this repository (See the video here: https://www.youtube.com/watch?v=U6Ttcc1KJUg&feature=youtu.be)
 
 ## Installation of TensorFlow on MacOS
 - Install TensorFlow on your computer. On macOS, the simpliest way to do that is to use Brew:
