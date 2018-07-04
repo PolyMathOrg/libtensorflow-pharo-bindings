@@ -30,8 +30,8 @@ TensorFlowCAPI>>macModulename
 
 ## Installation of TensorFlow on Windows
 - Install Tensorflow on your computer.
-- check method ```TensorFlowCAPI>>linuxModulename```to put the path to where Tensorflow libraries are located on your computer:
+- check method ```TensorFlowCAPI>>unixModulename```to put the path to where Tensorflow libraries are located on your computer:
 ```Smalltalk
-TensorFlowCAPI>>linuxModulename
-  ^ ''
+TensorFlowCAPI>>unixModulename
+  ^ '/usr/local/lib/libtensorflow.so'
   ```
