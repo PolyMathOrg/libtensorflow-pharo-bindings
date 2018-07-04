@@ -28,7 +28,7 @@ TensorFlowCAPI>>macModulename
 - If you want the GPU version:
 ```pip3 install --upgrade tensorflow-gpu```
 
-## Installation of TensorFlow on Windows
+## Installation of TensorFlow on Linux
 - Install Tensorflow on your computer.
 - check method ```TensorFlowCAPI>>unixModulename```to put the path to where Tensorflow libraries are located on your computer:
 ```Smalltalk
