@@ -803,6 +803,12 @@ TensorFlowCAPI >> tensorType: aTF_Tensor [
 		module: TensorFlowCAPI
 ]
 
+{ #category : #'accessing platform' }
+TensorFlowCAPI >> unixModuleName [
+	
+^ '/usr/local/lib/libtensorflow.so'
+]
+
 { #category : #utils }
 TensorFlowCAPI >> version [
 	"TF_Version returns a string describing version information of the
