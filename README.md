@@ -17,7 +17,7 @@ FFIExternalStructureType>>basicHandle: aHandle at: index put: value
 ## Installation of TensorFlow on MacOS
 - Install TensorFlow on your computer. On macOS, the simpliest way to do that is to use Brew:
 ```brew install tensorflow```
-- modify ```TensorFlowCAPI>>macModulename```to put the path to where Tensorflow libraries are located on your computer:
+- check method ```TensorFlowCAPI>>macModulename```to put the path to where Tensorflow libraries are located on your computer:
 ```Smalltalk
 TensorFlowCAPI>>macModulename
   ^ '/usr/local/Cellar/libtensorflow/1.8.0/lib/libtensorflow.so'
@@ -27,3 +27,11 @@ TensorFlowCAPI>>macModulename
 ```pip install tensorflow```
 - If you want the GPU version:
 ```pip3 install --upgrade tensorflow-gpu```
+
+## Installation of TensorFlow on Windows
+- Install Tensorflow on your computer.
+- check method ```TensorFlowCAPI>>linuxModulename```to put the path to where Tensorflow libraries are located on your computer:
+```Smalltalk
+TensorFlowCAPI>>linuxModulename
+  ^ ''
+  ```
