@@ -9,17 +9,30 @@ Class {
 }
 
 { #category : #private }
-MNISTFile class >> download: aName [	
-	| url response content file |
-		url := 'http://yann.lecun.com/exdb/mnist/', aName.
-		response := ZnClient new get: url.
-		content := response asByteArray.
-		(FileSystem disk workingDirectory fileSystem) createDirectory: 'dataset'.
-		file := ('dataset/', name) asFileReference.
-		file writeStreamDo: [ :stream | 
-    stream 
-         nextPutAll: content ].
-		^ file
+MNISTFile class >> download: aName [
+
+	| datasetURL outputFileName |
+	datasetURL := 'http://yann.lecun.com/exdb/mnist/' , aName.
+	outputFileName := 'dataset/' , aName.
+	FileSystem disk workingDirectory fileSystem ensureCreateDirectory: 'dataset'.
+	UIManager default
+		informUserDuring: [ :bar | 
+			bar label: 'Downloading MNIST dataset ...'.
+			[ ZnClient new
+				url: datasetURL;
+				signalProgress: true;
+				downloadTo: outputFileName ]
+				on: HTTPProgress
+				do: [ :progress | 
+					progress isEmpty
+						ifFalse: [ bar current: progress percentage.
+							progress total
+								ifNotNil: [ :aTotalNumber | 
+									| humanReadable |
+									humanReadable := self printHumanReadableSize: aTotalNumber.
+									bar label: 'Downloading ' , humanReadable , ' of MNIST dataset ... ' ] ].
+					progress resume ] ].
+	^ outputFileName asFileReference
 ]
 
 { #category : #'instance creation' }
@@ -39,6 +52,18 @@ MNISTFile class >> fromReader: aReader [
 	| answer |
 	answer := self new.
 	^ answer parse: aReader
+]
+
+{ #category : #private }
+MNISTFile class >> printHumanReadableSize: aTotalNumber [
+	| humanReadable length unit |
+	length := ((aTotalNumber decimalDigitLength / 3) truncated) - 1 max: 0.
+	humanReadable := (aTotalNumber / (1024 raisedTo: (length min: 3))) rounded.
+	length = 0 ifTrue: [ unit := 'bytes' ].
+	length = 1 ifTrue: [ unit := 'KB' ].
+	length = 2 ifTrue: [ unit := 'MB' ].
+	length = 3 ifTrue: [ unit := 'GB' ].
+	^ humanReadable printString, ' ', unit
 ]
 
 { #category : #accessing }
