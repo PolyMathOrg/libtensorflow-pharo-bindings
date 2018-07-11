@@ -13,6 +13,8 @@ FFIExternalStructureType>>basicHandle: aHandle at: index put: value
 	^ LibC memCopy: value getHandle to: aHandle + (index - 1) size: self externalTypeSize
   ```
 - Use Iceberg to load the code of this repository (See the video here: https://www.youtube.com/watch?v=U6Ttcc1KJUg&feature=youtu.be)
+- Load Roassal2: https://github.com/ObjectProfile/Roassal2
+- Load idx-reader: https://github.com/guillep/idx-reader
 
 ## Installation of TensorFlow on MacOS
 - Install TensorFlow on your computer. On macOS, the simpliest way to do that is to use Brew:
