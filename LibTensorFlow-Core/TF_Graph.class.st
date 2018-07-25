@@ -258,6 +258,16 @@ TF_Graph >> mul: nameString described: aBlock [
 	^self newOperation: 'Mul' named: nameString described: aBlock
 ]
 
+{ #category : #'random operations' }
+TF_Graph >> multinomialShaped: shapeConstant numSamples: aNumber [
+	"Draws samples from a multinomial distribution."
+	| numSamples|
+	numSamples := self const: aNumber asInt32Tensor .
+
+	^ shapeConstant op: 'Multinomial' withAll: {numSamples} named: 'Mltn' described:
+	[:description |]
+]
+
 { #category : #'root operations' }
 TF_Graph >> nameFor: namePrefix [
 	^ context, namePrefix,'_',self operationsCount printString.
@@ -351,6 +361,25 @@ TF_Graph >> outputDimensionsCount: aTF_Output [
 	^ answer
 ]
 
+{ #category : #'random operations' }
+TF_Graph >> parametrizedTruncatedNormalShaped: shapeArray means: means stdevs: stdevs minVals:minVals maxVals:maxVals [
+	| shape meansTensor stdevsTensor minValsTensor maxValsTensor |
+	shape := self const: shapeArray asInt32Tensor.
+	meansTensor := self const: means asFloatTensor.
+	stdevsTensor := self const: stdevs asFloatTensor.
+	minValsTensor := self const: minVals asFloatTensor.
+	maxValsTensor := self const: maxVals asFloatTensor.	
+	^ shape op: 'ParameterizedTruncatedNormal' withAll: {meansTensor. stdevsTensor. minValsTensor.maxValsTensor} named: 'Mltn' described:
+	[:description |]
+]
+
+{ #category : #'random operations' }
+TF_Graph >> parametrizedTruncatedNormalShaped: shapeArray stddev: aNumber [
+	| random |
+	random := self truncatedNormalRandomShaped: shapeArray.
+	^ random @* (self const: aNumber asTensor)
+]
+
 { #category : #'root operations' }
 TF_Graph >> placeholder: nameString type: typeInteger [
 	^ self
@@ -358,6 +387,79 @@ TF_Graph >> placeholder: nameString type: typeInteger [
 		named: nameString
 		described: [:description |
 			description at: 'dtype' putType: typeInteger]
+]
+
+{ #category : #'random operations' }
+TF_Graph >> randomGamma:shapeArray alpha: alpha [ 
+	"Outputs random values from a uniform distribution."
+	| shape alphaTensor |
+	shape := self const: shapeArray asInt32Tensor.
+	alphaTensor:= self const: alpha asFloatTensor.
+
+	^ shape op: 'RandomGamma' withAll: {alphaTensor.} named: 'RG' described:
+	[:description |]
+]
+
+{ #category : #'random operations' }
+TF_Graph >> randomNormalShaped:shapeArray [
+	"Outputs random values from a normal distribution"
+	| shape |
+	shape := self const: shapeArray asInt32Tensor.
+	^ shape unaryOp: 'RandomStandardNormal' described: [:description |
+		description at: 'dtype' putType: TF_Tensor typeFloat]
+]
+
+{ #category : #'random operations' }
+TF_Graph >> randomNormalShaped: shapeArray stddev: aNumber [
+	| random |
+	random := self randomNormalShaped: shapeArray.
+	^ random @* (self const: aNumber asTensor)
+]
+
+{ #category : #'random operations' }
+TF_Graph >> randomPoisson:shapeArray rate: rate [ 
+	"Outputs random values from a uniform distribution."
+	| shape  rateTensor |
+	shape := self const: shapeArray asInt32Tensor.
+	rateTensor:= self const: rate asFloatTensor.
+
+	^ shape op: 'RandomPoissonV2' withAll: {rateTensor.} named: 'RP' described:
+	[:description |]
+]
+
+{ #category : #'random operations' }
+TF_Graph >> randomShuffle: aTensor [
+	
+	| shape |
+	shape := self const: aTensor.
+	^ shape unaryOp: 'RandomShuffle' described: [:description |]
+]
+
+{ #category : #'random operations' }
+TF_Graph >> randomUniformIntShaped:shapeArray minVal: minTensorAsArray maxVal:maxTensorAsArray [
+	"Outputs random values from a uniform distribution."
+	| shape mini maxi |
+	shape := self const: shapeArray asInt32Tensor.
+	mini:= self const: minTensorAsArray asInt32Tensor.
+	maxi := self const: maxTensorAsArray  asInt32Tensor.
+	^ shape op: 'RandomUniformInt' withAll: {mini. maxi.} named: 'RUI' described:
+	[:description |]
+]
+
+{ #category : #'random operations' }
+TF_Graph >> randomUniformShaped:shapeArray [
+	"Outputs random values from a uniform distribution."
+	| shape |
+	shape := self const: shapeArray asInt32Tensor.
+	^ shape unaryOp: 'RandomUniform' described: [:description |
+		description at: 'dtype' putType: TF_Tensor typeFloat]
+]
+
+{ #category : #'random operations' }
+TF_Graph >> randomUniformShaped: shapeArray stddev: aNumber [
+	| random |
+	random := self randomUniformIntShaped: shapeArray.
+	^ random @* (self const: aNumber asTensor)
 ]
 
 { #category : #outputs }

@@ -19,12 +19,14 @@ TF_Session class >> finalizeResourceData: handle [
 
 { #category : #'instance creation' }
 TF_Session class >> on: aTF_Graph [
-	| options status answer |
+	| options status answer session |
 	options := TF_SessionOptions create.
 	status := TF_Status create.
 	answer := TensorFlowCAPI current newSession: aTF_Graph options: options status: status.
 	status check.
-	^ answer autoRelease
+	session := answer autoRelease.
+	aTF_Graph initializeOn:session.
+	^ session
 ]
 
 { #category : #release }

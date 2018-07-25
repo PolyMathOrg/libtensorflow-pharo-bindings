@@ -410,10 +410,9 @@ TensorFlowCAPI >> importGraphDefInto: aTF_Graph from: aTF_Buffer options: aTF_Im
 	^ self ffiCall: #(void TF_GraphImportGraphDef #(TF_Graph * aTF_Graph, TF_Buffer * aTF_Buffer, TF_ImportGraphDefOptions * aTF_ImportGraphDefOptions, TF_Status * aTF_Status)) module: TensorFlowCAPI
 ]
 
-{ #category : #utils }
+{ #category : #'accessing platform' }
 TensorFlowCAPI >> macModuleName [
-
-^ '/usr/local/Cellar/libtensorflow/1.9.0/lib/libtensorflow.so'
+  ^ '/usr/local/Cellar/libtensorflow/1.8.0/lib/libtensorflow.so'
 ]
 
 { #category : #status }

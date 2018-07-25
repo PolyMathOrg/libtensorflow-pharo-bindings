@@ -82,7 +82,173 @@ TensorFlowOperationsTest >> standardDeviation: aCollectionOfNumbers [
 	^(self variance: aCollectionOfNumbers) sqrt
 ]
 
-{ #category : #'binary operations' }
+{ #category : #'random ops' }
+TensorFlowOperationsTest >> testGraphMultinomialShaped [
+	| graph session result random values shape |	
+	graph := TF_Graph create.
+	shape := graph const:  {{10. 10}} asFloatTensor.
+	shape log.
+	random := graph multinomialShaped: shape numSamples: 25.
+
+	session := TF_Session on: graph.
+	result := session runOutput: (random output: 0).
+	values := result allFloats.
+	
+		
+	self assert: result shape equals: #(1 25).
+	self assert: values size equals: 25.
+	self assert: values min  >= 0.
+	self assert: values max <=1.
+
+
+	
+]
+
+{ #category : #'random ops' }
+TensorFlowOperationsTest >> testGraphNormal [
+	| graph session result random values std theoreticalDecile expected |
+	graph := TF_Graph create.
+	random := graph randomNormalShaped: #(100 100 10).
+	session := TF_Session on: graph.
+	result := session runOutput: (random output: 0).
+	values := result allFloats.
+	theoreticalDecile := -1.1840324666939051.
+	std := self standardDeviation: values.
+	self assert: result shape equals: #(100 100 10).
+	self assert: values size equals: 100 * 100 * 10.
+	self assert: values min + 2 < 0.01.
+	self assert: 2 - values max < 0.01.
+	self assert: (self mean: values) abs < (0.01 * std).
+	expected := {theoreticalDecile.
+	theoreticalDecile negated}.
+	#(0.1 0.9)
+		with: expected
+		do: [ :p :e | 
+			| observed |
+			observed := self percentile: p from: values.
+			self assert: (observed - e) abs < 0.2 ]
+]
+
+{ #category : #'random ops' }
+TensorFlowOperationsTest >> testGraphNormalStddev [
+	| graph session result random values sigma twoSigma std theoreticalDecile expected |	
+	graph := TF_Graph create.
+	
+	sigma := 3.14.
+	twoSigma := 2 * sigma.
+	random := graph randomNormalShaped: #(100 100 10) stddev: sigma.
+
+	session := TF_Session on: graph.
+	result := session runOutput: (random output: 0).
+	values := result allFloats.
+	
+	std := self standardDeviation: values.
+	theoreticalDecile := -1.1840324666939051.
+		
+	self assert: result shape equals: #(100 100 10).
+	self assert: values size equals: 100*100*10.
+	self assert: twoSigma - (values min abs)  < 0.1.
+	self assert: twoSigma - values max < 0.1.
+	self assert: (self mean: values) abs < (0.01 * std).
+	expected :=  { theoreticalDecile * sigma. 
+							theoreticalDecile negated * sigma.
+							-2.
+							2}.
+
+	
+]
+
+{ #category : #'random ops' }
+TensorFlowOperationsTest >> testGraphParametrizedTruncatedNormal [
+	| graph session result random values std|
+	graph := TF_Graph create.
+	random := graph parametrizedTruncatedNormalShaped: #(100 100 10) 
+																means:#(0) 
+																stdevs:#(1)
+																minVals:#(-1) 
+																maxVals:#(1).
+	session := TF_Session on: graph.
+	result := session runOutput: (random output: 0).
+	values := result allFloats.
+
+	std := self standardDeviation: values.
+	self assert: result shape equals: #(100 100 10).
+	self assert: values size equals: 100 * 100 * 10.
+	self assert: values min > -1.
+	self assert: values max < 1.
+
+]
+
+{ #category : #'random ops' }
+TensorFlowOperationsTest >> testGraphRandomGamma [
+	| graph session result random values std|
+	graph := TF_Graph create.
+	random := graph randomGamma: #(100 100 10) alpha:1.
+													
+	session := TF_Session on: graph.
+	result := session runOutput: (random output: 0).
+	values := result allFloats.
+
+	std := self standardDeviation: values.
+	self assert: result shape equals: #(100 100 10).
+	self assert: values size equals: 100 * 100 * 10.
+
+
+]
+
+{ #category : #'random ops' }
+TensorFlowOperationsTest >> testGraphRandomPoisson [
+	| graph session result random values std|
+	graph := TF_Graph create.
+	random := graph randomPoisson: #(100 100 10) rate:1.
+													
+	session := TF_Session on: graph.
+	result := session runOutput: (random output: 0).
+	values := result allFloats.
+
+	std := self standardDeviation: values.
+	self assert: result shape equals: #(100 100 10).
+	self assert: values size equals: 100 * 100 * 10.
+
+
+]
+
+{ #category : #'random ops' }
+TensorFlowOperationsTest >> testGraphRandomUniformShaped [
+	| graph session result random values |	
+	graph := TF_Graph create.
+	
+	random := graph randomUniformIntShaped: {100. 100. 10} minVal: 3 maxVal: 5.
+
+	session := TF_Session on: graph.
+	result := session runOutput: (random output: 0).
+	values := result allInt32s.
+	
+		
+	self assert: result shape equals: #(100 100 10).
+	self assert: values size equals: 100*100*10.
+	self assert: values min  >= 3.
+	self assert: values max <5.
+
+
+	
+]
+
+{ #category : #'random ops' }
+TensorFlowOperationsTest >> testGraphTensorRandomShuffle [
+	| graph session result random values |
+	graph := TF_Graph create.
+	random := graph randomShuffle: {{1. 2. 3}. {4. 5. 6}. {7. 8. 9}} asInt32Tensor.
+	session := TF_Session on: graph.
+	result := session runOutput: (random output: 0).
+	values := result allFloats.
+	
+	self assert: result shape equals: #(3 3).
+	self assert: values size equals: 9.
+
+]
+
+{ #category : #'random ops' }
 TensorFlowOperationsTest >> testGraphTruncatedNormal [
 	| graph session result random values std theoreticalDecile expected |
 	graph := TF_Graph create.
@@ -107,7 +273,7 @@ TensorFlowOperationsTest >> testGraphTruncatedNormal [
 			self assert: (observed - e) abs < 0.2 ]
 ]
 
-{ #category : #'binary operations' }
+{ #category : #'random ops' }
 TensorFlowOperationsTest >> testGraphTruncatedNormalStddev [
 	| graph session result random values sigma twoSigma std theoreticalDecile expected |	
 	graph := TF_Graph create.
