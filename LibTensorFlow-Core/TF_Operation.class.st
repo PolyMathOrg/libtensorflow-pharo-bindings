@@ -17,6 +17,11 @@ TF_Operation >> * aTF_Operation [
 ]
 
 { #category : #'ops binary' }
+TF_Operation >> ** aTF_Operation [
+	^ self binaryOp: 'Pow' with: aTF_Operation
+]
+
+{ #category : #'ops binary' }
 TF_Operation >> *\ aTF_Operation [
 	^ self
 		binaryOp: 'MatMul'
@@ -142,7 +147,7 @@ TF_Operation >> assign: aTF_Operation [
 	^ self
 		binaryOp: 'Assign'
 		with: aTF_Operation
-		named: self name, '_initializer'
+		named: (self nameFor: self name) , '_initializer'
 ]
 
 { #category : #attributes }
@@ -306,6 +311,13 @@ TF_Operation >> inverse [
 { #category : #'ops binary' }
 TF_Operation >> library [
 	^ TensorFlowCAPI current
+]
+
+{ #category : #accessing }
+TF_Operation >> log [
+	"CComputes natural logarithm of x element-wise"
+
+	^ self unaryOp: 'Log'
 ]
 
 { #category : #'ops binary' }
