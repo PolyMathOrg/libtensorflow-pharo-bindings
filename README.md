@@ -14,7 +14,7 @@ FFIExternalStructureType>>basicHandle: aHandle at: index put: value
   ```
 - Use Iceberg to load the code of this repository (See the video here: https://www.youtube.com/watch?v=U6Ttcc1KJUg&feature=youtu.be)
 
-Until we have a BaselineOf this this project, you have to loaded dependencies [Roassal2](https://github.com/ObjectProfile/Roassal2) and [idx-reader](https://github.com/guillep/idx-reader) by hand:
+Until we have a BaselineOf for this project, you have to loaded dependencies [Roassal2](https://github.com/ObjectProfile/Roassal2) and [idx-reader](https://github.com/guillep/idx-reader) by hand:
 
 ```Smalltalk
  Metacello new 
