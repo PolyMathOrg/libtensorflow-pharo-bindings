@@ -1,10 +1,7 @@
 Class {
 	#name : #TensorFlowCAPITest,
 	#superclass : #TestCase,
-	#instVars : [
-		'library'
-	],
-	#category : 'LibTensorFlow-Core'
+	#category : #'LibTensorFlow-Core'
 }
 
 { #category : #graphs }

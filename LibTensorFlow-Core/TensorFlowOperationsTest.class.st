@@ -84,24 +84,18 @@ TensorFlowOperationsTest >> standardDeviation: aCollectionOfNumbers [
 
 { #category : #'random ops' }
 TensorFlowOperationsTest >> testGraphMultinomialShaped [
-	| graph session result random values shape |	
+	| graph session result random values shape |
 	graph := TF_Graph create.
-	shape := graph const:  {{10. 10}} asFloatTensor.
+	shape := graph const: {{10 . 10}} asFloatTensor.
 	shape log.
 	random := graph multinomialShaped: shape numSamples: 25.
-
 	session := TF_Session on: graph.
 	result := session runOutput: (random output: 0).
 	values := result allFloats.
-	
-		
 	self assert: result shape equals: #(1 25).
 	self assert: values size equals: 25.
-	self assert: values min  >= 0.
-	self assert: values max <=1.
-
-
-	
+	self assert: values min >= 0.
+	self assert: values max <= 1
 ]
 
 { #category : #'random ops' }
@@ -160,78 +154,62 @@ TensorFlowOperationsTest >> testGraphNormalStddev [
 
 { #category : #'random ops' }
 TensorFlowOperationsTest >> testGraphParametrizedTruncatedNormal [
-	| graph session result random values std|
+	| graph session result random values |
 	graph := TF_Graph create.
-	random := graph parametrizedTruncatedNormalShaped: #(100 100 10) 
-																means:#(0) 
-																stdevs:#(1)
-																minVals:#(-1) 
-																maxVals:#(1).
+	random := graph
+		parametrizedTruncatedNormalShaped: #(100 100 10)
+		means: #(0)
+		stdevs: #(1)
+		minVals: #(-1)
+		maxVals: #(1).
 	session := TF_Session on: graph.
 	result := session runOutput: (random output: 0).
 	values := result allFloats.
-
-	std := self standardDeviation: values.
+	self standardDeviation: values.
 	self assert: result shape equals: #(100 100 10).
 	self assert: values size equals: 100 * 100 * 10.
 	self assert: values min > -1.
-	self assert: values max < 1.
-
+	self assert: values max < 1
 ]
 
 { #category : #'random ops' }
 TensorFlowOperationsTest >> testGraphRandomGamma [
-	| graph session result random values std|
+	| graph session result random values |
 	graph := TF_Graph create.
-	random := graph randomGamma: #(100 100 10) alpha:1.
-													
+	random := graph randomGamma: #(100 100 10) alpha: 1.
 	session := TF_Session on: graph.
 	result := session runOutput: (random output: 0).
 	values := result allFloats.
-
-	std := self standardDeviation: values.
+	self standardDeviation: values.
 	self assert: result shape equals: #(100 100 10).
-	self assert: values size equals: 100 * 100 * 10.
-
-
+	self assert: values size equals: 100 * 100 * 10
 ]
 
 { #category : #'random ops' }
 TensorFlowOperationsTest >> testGraphRandomPoisson [
-	| graph session result random values std|
+	| graph session result random values |
 	graph := TF_Graph create.
-	random := graph randomPoisson: #(100 100 10) rate:1.
-													
+	random := graph randomPoisson: #(100 100 10) rate: 1.
 	session := TF_Session on: graph.
 	result := session runOutput: (random output: 0).
 	values := result allFloats.
-
-	std := self standardDeviation: values.
+	self standardDeviation: values.
 	self assert: result shape equals: #(100 100 10).
-	self assert: values size equals: 100 * 100 * 10.
-
-
+	self assert: values size equals: 100 * 100 * 10
 ]
 
 { #category : #'random ops' }
 TensorFlowOperationsTest >> testGraphRandomUniformShaped [
-	| graph session result random values |	
+	| graph session result random values |
 	graph := TF_Graph create.
-	
-	random := graph randomUniformIntShaped: {100. 100. 10} minVal: 3 maxVal: 5.
-
+	random := graph randomUniformIntShaped: {100 . 100 . 10} minVal: 3 maxVal: 5.
 	session := TF_Session on: graph.
 	result := session runOutput: (random output: 0).
 	values := result allInt32s.
-	
-		
 	self assert: result shape equals: #(100 100 10).
-	self assert: values size equals: 100*100*10.
-	self assert: values min  >= 3.
-	self assert: values max <5.
-
-
-	
+	self assert: values size equals: 100 * 100 * 10.
+	self assert: values min >= 3.
+	self assert: values max < 5
 ]
 
 { #category : #'random ops' }
@@ -327,7 +305,7 @@ TensorFlowOperationsTest >> testGraphVariableFromTruncatedNormalStddev [
 	var := graph variable: 'var' initialValueFrom: random.
 	
 	session := TF_Session on: graph.
-	init := graph operationNamed: 'var_initializer'.
+	init := graph operationNamed: 'var_5_initializer'.
 	result1 := session runOutput: (init output: 0).
 	result2 := session runOutput: (var output: 0).
 
