@@ -1,7 +1,10 @@
 Class {
 	#name : #TensorFlowCAPITest,
 	#superclass : #TestCase,
-	#category : #'LibTensorFlow-Core'
+	#instVars : [
+		'library'
+	],
+	#category : 'LibTensorFlow-Core'
 }
 
 { #category : #graphs }
@@ -364,7 +367,7 @@ TensorFlowCAPITest >> runFloatAsStringGraph [
 
 { #category : #initialization }
 TensorFlowCAPITest >> setUp [
-super setUp.
+	super setUp.
 	library := TensorFlowCAPI current
 ]
 
