@@ -367,7 +367,7 @@ TensorFlowCAPITest >> runFloatAsStringGraph [
 
 { #category : #initialization }
 TensorFlowCAPITest >> setUp [
-super setUp.
+	super setUp.
 	library := TensorFlowCAPI current
 ]
 
