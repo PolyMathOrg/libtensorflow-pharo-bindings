@@ -68,6 +68,11 @@ TF_Graph >> allVariables [
 	^ self operationsSelect: [ :op | op type = 'Variable' ]
 ]
 
+{ #category : #gtInspector }
+TF_Graph >> asRoassalView [
+	^ self drawOnRoassalView: RTView new
+]
+
 { #category : #operations }
 TF_Graph >> asString: nameString described: aBlock [
 	^ self newOperation: 'AsString' named: nameString described: aBlock
@@ -114,6 +119,41 @@ self halt.
 	self isNull
 		ifFalse: [ self library deleteGraph: self ].
 	handle := nil
+]
+
+{ #category : #gtInspector }
+TF_Graph >> drawOnRoassalView: view [
+	| operations lab nodes edges |
+	
+	operations := self allOperations.
+	lab := RTLabel new.
+	nodes := (RTEllipse new
+				size: 15;
+				color: (Color blue alpha: 0.4)) + (lab text: [ :op | op name ]) elementsOn: operations.
+	nodes @ RTDraggable.
+	view @ RTDraggableView @RTZoomableView.
+	
+	view addAll:nodes.
+
+	edges := OrderedCollection new.
+	operations
+				do: [ :op | 
+					| nbInputs output op1 op2 |
+					nbInputs := op inputsCount.
+					0 to: nbInputs - 1 do: [ :index | 
+						output := TensorFlowCAPI uniqueInstance operationInput: (op input: index).
+						op1 := TF_Operation fromHandle: output operation.
+						op2 := (operations select: [ :opx | opx name = op1 name ]) at: 1.
+						edges add: op2 -> op ] ].
+	RTEdgeBuilder new
+				view: view;
+				shape:
+					(RTArrowedLine new
+						color: Color black);
+				source: edges connectFrom: #key to: #value.
+	(RTLayoutBuilder new forceWithCharge: -600) on: view elements.
+
+	^ view
 ]
 
 { #category : #finalization }
@@ -169,32 +209,7 @@ TF_Graph >> gtInspectorGraphIn: composite [
 	composite roassal2
 		title: 'DataFlow';
 		painting: [ :view | 
-			| operations lab nodes edges |
-			operations := self allOperations.
-			lab := RTLabel new.
-			nodes := (RTEllipse new
-				size: 15;
-				color: (Color blue alpha: 0.4)) + (lab text: [ :op | op name ]) elementsOn: operations.
-			nodes @ RTDraggable.
-			view addAll: nodes.
-			edges := OrderedCollection new.
-			operations
-				do: [ :op | 
-					| nbInputs output op1 op2 |
-					nbInputs := op inputsCount.
-					0 to: nbInputs - 1 do: [ :index | 
-						output := TensorFlowCAPI uniqueInstance operationInput: (op input: index).
-						op1 := TF_Operation fromHandle: output operation.
-						op2 := (operations select: [ :opx | opx name = op1 name ]) at: 1.
-						edges add: op2 -> op ] ].
-			RTEdgeBuilder new
-				view: view;
-				shape:
-					(RTArrowedLine new
-						color: Color black;
-						attachPoint: RTBorderAttachPoint new);
-				source: edges connectFrom: #key to: #value.
-			(RTLayoutBuilder new forceWithCharge: -600) on: view elements.
+			self drawOnRoassalView: view.
 			view ]
 ]
 
