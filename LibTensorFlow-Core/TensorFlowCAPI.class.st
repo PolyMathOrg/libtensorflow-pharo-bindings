@@ -412,7 +412,7 @@ TensorFlowCAPI >> importGraphDefInto: aTF_Graph from: aTF_Buffer options: aTF_Im
 
 { #category : #'accessing platform' }
 TensorFlowCAPI >> macModuleName [
-  ^ '/usr/local/Cellar/libtensorflow/1.9.0/lib/libtensorflow.so'
+  ^ '/usr/local/Cellar/libtensorflow/1.12.0/lib/libtensorflow.so'
 ]
 
 { #category : #status }
