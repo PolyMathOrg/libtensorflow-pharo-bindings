@@ -12,25 +12,28 @@ You will need a 64 bits Pharo VM in order to run the code. The code has only be 
 FFIExternalStructureType>>basicHandle: aHandle at: index put: value
 	^ LibC memCopy: value getHandle to: aHandle + (index - 1) size: self externalTypeSize
   ```
-- Use Iceberg to load the code of this repository (See the video here: https://www.youtube.com/watch?v=U6Ttcc1KJUg&feature=youtu.be)
 
-Until we have a BaselineOf for this project, you have to loaded dependencies [Roassal2](https://github.com/ObjectProfile/Roassal2) and [idx-reader](https://github.com/guillep/idx-reader) by hand:
-
-```Smalltalk
-Metacello new 
-  onWarningLog;
-  smalltalkhubUser: 'ObjectProfile' project: 'Roassal2';
-  configuration: 'Roassal2';
-  version: #development;
-  load.
-```
+- Install the project in Pharo
+  
+To install the project on your Pharo image you can execute the following script:
 
 ```Smalltalk
-Metacello new
-  baseline: 'IdxReader';
-  repository: 'github://guillep/idx-reader';
-  load.
+    Metacello new
+    	githubUser: 'PolyMathOrg' project: 'libtensorflow-pharo-bindings' commitish: 'master' path: '';
+    	baseline: 'LibTensorFlowPharoBinding';
+    	load
 ```
+
+Alternatively you can use Iceberg to load the code of this repository (See the video here: https://www.youtube.com/watch?v=U6Ttcc1KJUg&feature=youtu.be)
+
+To add the project to your baseline just add this:
+
+```Smalltalk
+    spec
+    	baseline: 'LibTensorFlowPharoBinding'
+    	with: [ spec repository: 'github://PolyMathOrg/libtensorflow-pharo-bindings' ]
+```
+
 
 ## Installation of TensorFlow on MacOS
 - Install TensorFlow on your computer. On macOS, the simpliest way to do that is to use Brew:
