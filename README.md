@@ -12,7 +12,7 @@ You will need a 64 bits Pharo VM in order to run the code. The code has only be 
 FFIExternalStructureType>>basicHandle: aHandle at: index put: value
 	^ LibC memCopy: value getHandle to: aHandle + (index - 1) size: self externalTypeSize
   ```
-
+  
 - Install the project in Pharo
   
 To install the project on your Pharo image you can execute the following script:
@@ -33,7 +33,6 @@ To add the project to your baseline just add this:
     	baseline: 'LibTensorFlowPharoBinding'
     	with: [ spec repository: 'github://PolyMathOrg/libtensorflow-pharo-bindings' ]
 ```
-
 
 ## Installation of TensorFlow on MacOS
 - Install TensorFlow on your computer. On macOS, the simpliest way to do that is to use Brew:

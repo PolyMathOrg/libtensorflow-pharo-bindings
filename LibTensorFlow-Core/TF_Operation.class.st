@@ -558,6 +558,14 @@ TF_Operation >> timesRectifiedGradOf: aTF_Operation [
 	^ self binaryOp: 'ReluGrad' with: aTF_Operation
 ]
 
+{ #category : #'ops unary' }
+TF_Operation >> transposePermutingAxes: permutation [
+
+	| name |
+	name := 'Transpose'.
+	^ self op: name withAll: { permutation } named: (self nameFor:name) described: [:description| ]
+]
+
 { #category : #accessing }
 TF_Operation >> type [
 	"The type of the op (e.g. MatMul)"
