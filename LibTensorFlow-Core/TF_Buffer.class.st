@@ -30,6 +30,13 @@ TF_Buffer class >> fieldsDesc [
 ]
 
 { #category : #'instance creation' }
+TF_Buffer class >> fromBinaryFileNamed: aString [
+	| fileContents |
+	fileContents := aString asFileReference binaryReadStream contents.
+	^ self fromString: fileContents
+]
+
+{ #category : #'instance creation' }
 TF_Buffer class >> fromFileNamed: aString [
 	| fileContents |
 	fileContents := aString asFileReference readStream contents.
