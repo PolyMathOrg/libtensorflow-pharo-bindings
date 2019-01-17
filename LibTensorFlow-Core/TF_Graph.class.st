@@ -34,6 +34,11 @@ TF_Graph class >> fromBlock: aBlockClosure [
 ]
 
 { #category : #'instance creation' }
+TF_Graph class >> fromBinaryFileNamed: aString [
+	^ self create importBinaryFileNamed: aString
+]
+
+{ #category : #'instance creation' }
 TF_Graph class >> fromFileNamed: aString [
 	^ self create importFileNamed: aString
 ]
@@ -225,6 +230,13 @@ TF_Graph >> import: aTF_Buffer [
 		status: status.
 	options delete.
 	status check
+]
+
+{ #category : #'initialize-release' }
+TF_Graph >> importBinaryFileNamed: aString [
+	| buffer |
+	buffer := TF_Buffer fromBinaryFileNamed: aString.
+	[self import: buffer] ensure: [buffer delete].
 ]
 
 { #category : #'initialize-release' }
