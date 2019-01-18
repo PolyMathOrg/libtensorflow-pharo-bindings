@@ -18,7 +18,7 @@ curl  https://storage.googleapis.com/download.tensorflow.org/models/mobilenet_v1
 mv /tmp/mobilenet_v1_1.0_224/labels.txt /tmp/
 ```
 
-Simplest examaple:
+Simplest example:
 ```
 |results|
 results := LabelImage new prepareImageInput;
