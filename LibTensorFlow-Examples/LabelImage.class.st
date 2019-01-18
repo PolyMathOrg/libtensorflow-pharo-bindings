@@ -1,3 +1,66 @@
+"
+This example shows how you can load a pre-trained TensorFlow network and use it to recognize objects in images.
+
+Before using it, you have to prepare
+  * graphFile: a TensorFlow GraphDef that contains the model definition and weights,
+    default is '/tmp/mobilenet_v1_1.0_224_quant_frozen.pb'.
+  * imageFile: the image/photo file to be recognized, default is '/tmp/grace_hooper.jpg'.
+  * labelsFile: results of the classfication is an array of probbablities for each
+    category, need a file of labels for each category to map numbers to categories,
+    default is '/tmp/labels.txt'.
+
+How to get them:
+
+```
+curl http://download.tensorflow.org/models/mobilenet_v1_2018_02_22/mobilenet_v1_1.0_224_quant.tgz | tar xzv -C /tmp
+curl https://raw.githubusercontent.com/tensorflow/tensorflow/master/tensorflow/lite/examples/label_image/testdata/grace_hopper.bmp > /tmp/grace_hopper.bmp
+curl  https://storage.googleapis.com/download.tensorflow.org/models/mobilenet_v1_1.0_224_frozen.tgz  | tar xzv -C /tmp  mobilenet_v1_1.0_224/labels.txt
+mv /tmp/mobilenet_v1_1.0_224/labels.txt /tmp/
+```
+
+Simplest examaple:
+```
+|results|
+results := LabelImage new prepareImageInput;
+	prepareSession;
+	predict.
+
+Transcript cr.
+results do: [ :each|
+	Transcript show: each;cr].
+```
+You can see the followings in Transcript.
+```
+#('653:military uniform' 0.842427134513855)
+#('668:mortarboard' 0.04237252101302147)
+#('907:Windsor tie' 0.035887911915779114)
+#('820:stage' 0.011220086365938187)
+#('820:stage' 0.011220086365938187)
+```
+
+
+To run Inception V3 like what described at https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/label_image/README.md,
+```
+curl -L ""https://storage.googleapis.com/download.tensorflow.org/models/inception_v3_2016_08_28_frozen.pb.tar.gz"" | tar -C /tmp/ -xz
+```
+
+Then, run 
+```
+|results|
+results := LabelImage new
+	imageSize: 299;
+	inputMean: 0.0;
+	inputStddev: 255.0;
+	graphFile: '/tmp/inception_v3_2016_08_28_frozen.pb';
+	prepareImageInput;
+	prepareSession;
+	predict.
+
+Transcript cr.
+results do: [ :each|
+	Transcript show: each;cr].
+```
+"
 Class {
 	#name : #LabelImage,
 	#superclass : #Object,
