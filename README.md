@@ -28,22 +28,20 @@ To add the project to your baseline just add this:
     	with: [ spec repository: 'github://PolyMathOrg/libtensorflow-pharo-bindings' ]
 ```
 
-## Installation of TensorFlow on MacOS
-- Install TensorFlow on your computer. On macOS, the simpliest way to do that is to use Brew:
+## Installation of TensorFlow C API on MacOS
+- Install TensorFlow C API on your computer. On macOS, the simpliest way to do that is to use Brew:
 ```brew install tensorflow```
+  If you don't use brew, check the [installation guide](https://www.tensorflow.org/install/lang_c)
 - check method ```TensorFlowCAPI>>macModulename```to put the path to where Tensorflow libraries are located on your computer:
 ```Smalltalk
 TensorFlowCAPI>>macModulename
   ^ '/usr/local/Cellar/libtensorflow/1.12.0/lib/libtensorflow.so'
   ```
-## Installation of TensorFlow on Windows
-- Install Tensorflow on your computer. On Windows the easiest way is to use pip:
-```pip install tensorflow```
-- If you want the GPU version:
-```pip3 install --upgrade tensorflow-gpu```
+## Installation of TensorFlow C API on Windows
+- Check the Tensorflow for C [installation guide](https://www.tensorflow.org/install/lang_c)
 
-## Installation of TensorFlow on Linux
-- Install Tensorflow on your computer.
+## Installation of TensorFlow C API on Linux
+- Check the Tensorflow for C [installation guide](https://www.tensorflow.org/install/lang_c)
 - check method ```TensorFlowCAPI>>unixModulename```to put the path to where Tensorflow libraries are located on your computer:
 ```Smalltalk
 TensorFlowCAPI>>unixModulename
