@@ -5,7 +5,7 @@ Before using it, you have to prepare
   * graphFile: a TensorFlow GraphDef that contains the model definition and weights,
     default is '/tmp/mobilenet_v1_1.0_224_quant_frozen.pb'.
   * imageFile: the image/photo file to be recognized, default is '/tmp/grace_hooper.jpg'.
-  * labelsFile: results of the classfication is an array of probbablities for each
+  * labelsFile: results of the classfication is an array of probabilities for each
     category, need a file of labels for each category to map numbers to categories,
     default is '/tmp/labels.txt'.
 
@@ -105,8 +105,8 @@ LabelImage >> imageSize [
 ]
 
 { #category : #accessing }
-LabelImage >> imageSize: anObject [
-	imageSize := anObject
+LabelImage >> imageSize: aNumber [
+	imageSize := aNumber
 ]
 
 { #category : #initialization }
@@ -128,8 +128,8 @@ LabelImage >> inputMean [
 ]
 
 { #category : #accessing }
-LabelImage >> inputMean: anObject [
-	inputMean := anObject
+LabelImage >> inputMean: aFloat [
+	inputMean := aFloat
 ]
 
 { #category : #accessing }
