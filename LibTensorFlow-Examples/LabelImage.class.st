@@ -5,15 +5,15 @@ Before using it, you have to prepare
   * graphFile: a TensorFlow GraphDef that contains the model definition and weights,
     default is '/tmp/mobilenet_v1_1.0_224_quant_frozen.pb'.
   * imageFile: the image/photo file to be recognized, default is '/tmp/grace_hooper.jpg'.
-  * labelsFile: results of the classfication is an array of probabilities for each
-    category, need a file of labels for each category to map numbers to categories,
+  * labelsFile: results of the classification is an array of probabilities for each
+    category, it need a file of labels for each category to map numbers to categories,
     default is '/tmp/labels.txt'.
 
 How to get them:
 ```
 curl http://download.tensorflow.org/models/mobilenet_v1_2018_02_22/mobilenet_v1_1.0_224_quant.tgz | tar xzv -C /tmp
 curl https://raw.githubusercontent.com/tensorflow/tensorflow/master/tensorflow/lite/examples/label_image/testdata/grace_hopper.bmp > /tmp/grace_hopper.bmp
-curl  https://storage.googleapis.com/download.tensorflow.org/models/mobilenet_v1_1.0_224_frozen.tgz  | tar xzv -C /tmp  mobilenet_v1_1.0_224/labels.txt
+curl https://storage.googleapis.com/download.tensorflow.org/models/mobilenet_v1_1.0_224_frozen.tgz  | tar xzv -C /tmp  mobilenet_v1_1.0_224/labels.txt
 mv /tmp/mobilenet_v1_1.0_224/labels.txt /tmp/
 ```
 
@@ -23,12 +23,8 @@ Simplest example:
 results := LabelImage new prepareImageInput;
 	prepareSession;
 	predict.
-
-Transcript cr.
-results do: [ :each|
-	Transcript show: each;cr].
 ```
-You can see the followings in Transcript.
+You can inspect the results to see the following:
 ```
 #('653:military uniform' 0.842427134513855)
 #('668:mortarboard' 0.04237252101302147)
@@ -112,12 +108,10 @@ LabelImage >> initialize [
 	imageSize := 224.
 	inputMean := 128.0.
 	inputStddev := 127.0.
-	
 	graphFile := '/tmp/mobilenet_v1_1.0_224_quant_frozen.pb'.
-	imageFile := '/tmp/grace_hooper.jpg'.
+	imageFile := '/tmp/grace_hopper.jpg'.
 	labelsFile := '/tmp/labels.txt'.
-	
-	top_n := 5.
+	top_n := 5
 ]
 
 { #category : #accessing }
@@ -180,9 +174,9 @@ LabelImage >> predict [
 LabelImage >> prepareImageInput [
 	| scaledImage b1 b2 b3 array2D |
 	scaledImage := (ImageReadWriter
-		formFromFileNamed: '/tmp/grace_hopper.jpg')
+		formFromFileNamed: self imageFile)
 		scaledIntoFormOfSize: imageSize.
-		
+
 	"bitmasks for R, G, and B"
 	b1 := scaledImage rgbaBitMasks at: 1.
 	b2 := scaledImage rgbaBitMasks at: 2.
