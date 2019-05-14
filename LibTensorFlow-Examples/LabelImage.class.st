@@ -19,8 +19,7 @@ mv /tmp/mobilenet_v1_1.0_224/labels.txt /tmp/
 
 Simplest example:
 ```
-|results|
-results := LabelImage new prepareImageInput;
+LabelImage new prepareImageInput;
 	prepareSession;
 	predict.
 ```
