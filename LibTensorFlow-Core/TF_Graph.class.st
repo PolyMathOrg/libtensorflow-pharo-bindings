@@ -25,17 +25,17 @@ TF_Graph class >> finalizeResourceData: handle [
 ]
 
 { #category : #'instance creation' }
+TF_Graph class >> fromBinaryFileNamed: aString [
+	^ self create importBinaryFileNamed: aString
+]
+
+{ #category : #'instance creation' }
 TF_Graph class >> fromBlock: aBlockClosure [
 	| output graph |
 	graph := self create.
 	output := graph fromBlock: aBlockClosure.
 	output alias: 'output'.
 	^ graph
-]
-
-{ #category : #'instance creation' }
-TF_Graph class >> fromBinaryFileNamed: aString [
-	^ self create importBinaryFileNamed: aString
 ]
 
 { #category : #'instance creation' }
