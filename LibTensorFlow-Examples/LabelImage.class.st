@@ -10,7 +10,6 @@ Before using it, you have to prepare
     default is '/tmp/labels.txt'.
 
 How to get them:
-
 ```
 curl http://download.tensorflow.org/models/mobilenet_v1_2018_02_22/mobilenet_v1_1.0_224_quant.tgz | tar xzv -C /tmp
 curl https://raw.githubusercontent.com/tensorflow/tensorflow/master/tensorflow/lite/examples/label_image/testdata/grace_hopper.bmp > /tmp/grace_hopper.bmp
@@ -37,7 +36,6 @@ You can see the followings in Transcript.
 #('820:stage' 0.011220086365938187)
 #('820:stage' 0.011220086365938187)
 ```
-
 
 To run Inception V3 like what described at https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/label_image/README.md,
 ```
@@ -158,8 +156,8 @@ LabelImage >> labelsFile [
 ]
 
 { #category : #accessing }
-LabelImage >> labelsFile: anObject [
-	labelsFile := anObject
+LabelImage >> labelsFile: aString [
+	labelsFile := aString
 ]
 
 { #category : #run }
@@ -181,28 +179,32 @@ LabelImage >> predict [
 { #category : #preparation }
 LabelImage >> prepareImageInput [
 	| scaledImage b1 b2 b3 array2D |
-	scaledImage := (ImageReadWriter formFromFileNamed: '/tmp/grace_hopper.jpg') scaledIntoFormOfSize: imageSize.
-	
+	scaledImage := (ImageReadWriter
+		formFromFileNamed: '/tmp/grace_hopper.jpg')
+		scaledIntoFormOfSize: imageSize.
+		
 	"bitmasks for R, G, and B"
 	b1 := scaledImage rgbaBitMasks at: 1.
 	b2 := scaledImage rgbaBitMasks at: 2.
 	b3 := scaledImage rgbaBitMasks at: 3.
-
 	array2D := Array2D new: imageSize.
-	1 to: imageSize do: [:x|
-		1 to: imageSize do: [:y|
+	1 to: imageSize do: [ :x | 
+		1 to: imageSize do: [ :y | 
 			| p a |
-			p := scaledImage pixelValueAt: x@y.
-			a := Array 
-				with: ((p & b1) bitShift: -16)
-				with: ((p & b2) bitShift: -8)
-				with: (p & b3)			
-			.
-			array2D at: y at: x put: a.
-	 	]
-	].
-
-	inputValues := TF_Tensor fromFloats: ((array2D - inputMean) / inputStddev) shape: (Array with: 1 with: imageSize with: imageSize with: 3).
+			p := scaledImage pixelValueAt: x @ y.
+			a := Array
+				with: (p & b1 bitShift: -16)
+				with: (p & b2 bitShift: -8)
+				with: p & b3.
+			array2D at: y at: x put: a ] ].
+	inputValues := TF_Tensor
+		fromFloats: (array2D - inputMean) / inputStddev
+		shape:
+			(Array
+				with: 1
+				with: imageSize
+				with: imageSize
+				with: 3)
 ]
 
 { #category : #preparation }
