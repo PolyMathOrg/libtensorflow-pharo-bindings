@@ -486,6 +486,27 @@ TensorFlowCAPI >> newStatus [
 	^ self ffiCall: #(TF_Status * TF_NewStatus #()) module: TensorFlowCAPI
 ]
 
+{ #category : #tensor }
+TensorFlowCAPI >> newTensorType: anInteger shape: aLongLongArray rank: dimCount data: aData length: len dealocattor: deallocator args: args [
+	"TF_CAPI_EXPORT extern TF_Tensor* TF_NewTensor(
+    	TF_DataType, const int64_t* dims, int num_dims, void* data, size_t len,
+    	void (*deallocator)(void* data, size_t len, void* arg),
+    	void* deallocator_arg);"
+
+	^ self
+		ffiCall: #(
+		TF_Tensor * TF_NewTensor #(
+			int anInteger,
+			int64 * aLongLongArray,
+			int dimCount,
+			void* aData,
+			size_t len,
+			void* deallocator,
+			void* args
+			))
+		module: TensorFlowCAPI
+]
+
 { #category : #operation }
 TensorFlowCAPI >> operation: aTF_Operation attr: nameZString getBool: valueBoolPtr status: status [
 	"<cdecl: void 'TF_OperationGetAttrBool' (TF_Operation* char* ulonglong* TF_Status*)>"
