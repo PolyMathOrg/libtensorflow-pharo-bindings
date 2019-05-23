@@ -198,6 +198,7 @@ TF_Tensor class >> fromStrings: strings shape: shape [
 
 { #category : #types }
 TF_Tensor class >> getterBlockFor: type [
+	TF_Tensor typeUInt8 = type ifTrue: [ ^ [ :data :offset | data unsignedByteAt: offset ] ].
 	TF_Tensor typeInt32 = type ifTrue: [^ [:data :offset | data signedLongAt: offset]].
 	TF_Tensor typeInt64 = type ifTrue: [^ [:data :offset | data signedLongLongAt: offset]].
 	TF_Tensor typeFloat = type ifTrue: [^ [:data :offset | data floatAt: offset]].
@@ -228,6 +229,8 @@ TF_Tensor class >> rankOf: aMultidimensionalArray [
 
 { #category : #types }
 TF_Tensor class >> setterBlockFor: type [
+	TF_Tensor typeUInt8 = type
+		ifTrue: [ ^ [ :data :offset :value | data unsignedByteAt: offset put: value ] ].
 	TF_Tensor typeInt32 = type
 		ifTrue: [ ^ [ :data :offset :value | data signedLongAt: offset put: value ] ].
 	TF_Tensor typeInt64 = type
@@ -257,6 +260,7 @@ TF_Tensor class >> sizeForType: anInteger [
 	self typeFloat = anInteger ifTrue: [^4].
 	self typeInt64 = anInteger ifTrue: [^8].
 	self typeInt32 = anInteger ifTrue: [^4].
+	self typeUInt8 = anInteger ifTrue: [^1].
 	self typeDouble = anInteger ifTrue: [^8].
 	self typeBoolean = anInteger ifTrue: [^1].
 
