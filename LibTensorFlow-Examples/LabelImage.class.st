@@ -19,11 +19,11 @@ mv /tmp/mobilenet_v1_1.0_224/labels.txt /tmp/
 
 Simplest example:
 ```
-LabelImage new prepareImageInput;
+(LabelImage new prepareImageInput;
 	prepareSession;
-	predict.
+	predict) first: 5.
 ```
-You can inspect the results to see the following:
+You can inspect the 5 top results to see the following:
 ```
 #('653:military uniform' 0.842427134513855)
 #('668:mortarboard' 0.04237252101302147)
@@ -109,8 +109,7 @@ LabelImage >> initialize [
 	inputStddev := 127.0.
 	graphFile := '/tmp/mobilenet_v1_1.0_224_quant_frozen.pb'.
 	imageFile := '/tmp/grace_hopper.jpg'.
-	labelsFile := '/tmp/labels.txt'.
-	top_n := 5
+	labelsFile := '/tmp/labels.txt'
 ]
 
 { #category : #accessing }
@@ -129,18 +128,8 @@ LabelImage >> inputStddev [
 ]
 
 { #category : #accessing }
-LabelImage >> inputStddev: anObject [
-	inputStddev := anObject
-]
-
-{ #category : #accessing }
-LabelImage >> inputValues [
-	^ inputValues
-]
-
-{ #category : #accessing }
-LabelImage >> inputValues: anObject [
-	inputValues := anObject
+LabelImage >> inputStddev: aFloat [
+	inputStddev := aFloat
 ]
 
 { #category : #accessing }
@@ -156,17 +145,16 @@ LabelImage >> labelsFile: aString [
 { #category : #run }
 LabelImage >> predict [
 	| results kv labels |
-	
-	results := (session 
-					runInputs: {((graph operationAt: 1) output)}
-					values: {inputValues}
-					outputs: {((graph operationAt: (graph operationsCount)) output)}) first asNumbers first.
-					
+	results := (session
+		runInputs: {(graph operationAt: 1) output}
+		values: {inputValues}
+		outputs: {(graph operationAt: graph operationsCount) output}) first
+		asNumbers first.
 	labels := labelsFile asFileReference contents lines.
-	
-	kv := results collect: [ :each | Array with: (labels at: (results indexOf: each)) with: each ].
-	
-	^ (kv sort: [:k1 :k2 | (k1 at: 2) > (k2 at: 2)]) first: top_n
+	kv := results
+		collect:
+			[ :each | Array with: (labels at: (results indexOf: each)) with: each ].
+	^ kv sort: [ :k1 :k2 | (k1 at: 2) > (k2 at: 2) ]
 ]
 
 { #category : #preparation }
@@ -204,14 +192,4 @@ LabelImage >> prepareImageInput [
 LabelImage >> prepareSession [
 	graph := TF_Graph fromBinaryFileNamed: graphFile.
 	session := TF_Session on: graph.
-]
-
-{ #category : #accessing }
-LabelImage >> top_n [
-	^ top_n
-]
-
-{ #category : #accessing }
-LabelImage >> top_n: anObject [
-	top_n := anObject
 ]
