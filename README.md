@@ -2,7 +2,7 @@
 
 This is a fork of https://github.com/Cuis-Smalltalk/Machine-Learning for Pharo.
 
-You will need a 64 bits Pharo VM in order to run the code. The code has only be tested on Pharo 7.0 on macOS and Windows with TensorFlow 1.12.0: https://github.com/tensorflow/tensorflow/releases/tag/v1.12.0
+You will need a 64 bits Pharo VM in order to run the code. The code has only be tested on Pharo 7.0 on macOS and Windows with TensorFlow 1.13.1: https://github.com/tensorflow/tensorflow/releases/tag/v1.13.1.
 
 ## Installation
 
