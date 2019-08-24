@@ -487,7 +487,7 @@ TensorFlowCAPI >> newStatus [
 ]
 
 { #category : #tensor }
-TensorFlowCAPI >> newTensorType: anInteger shape: aLongLongArray rank: dimCount data: aData length: len dealocattor: deallocator args: args [
+TensorFlowCAPI >> newTensorType: anInteger shape: aLongLongArray rank: dimCount data: aData length: len deallocator: deallocator args: args [
 	"TF_CAPI_EXPORT extern TF_Tensor* TF_NewTensor(
     	TF_DataType, const int64_t* dims, int num_dims, void* data, size_t len,
     	void (*deallocator)(void* data, size_t len, void* arg),
