@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'library'
 	],
-	#category : 'LibTensorFlow-Core'
+	#category : #'LibTensorFlow-Core'
 }
 
 { #category : #graphs }
@@ -1219,8 +1219,8 @@ TensorFlowCAPITest >> testGraphDefinition [
 	definition := self mulGraphTwoInputsInt64 definition.
 	operations := (TF_Graph fromString: definition) allInputs.
 	self assert: operations size equals: 2.
-	self assert: operations first name equals: 'in2'.
-	self assert: operations second name equals: 'in1'
+	self assert: operations first name equals: 'in1'.
+	self assert: operations second name equals: 'in2'
 ]
 
 { #category : #'testing graph' }
@@ -2763,7 +2763,7 @@ TensorFlowCAPITest >> testTensorTypes [
 TensorFlowCAPITest >> testVersion [
 	| version |
 	version := library version.
-	self assert: (#('1.14.0') includes: version)
+	self assert: (#('1.15.5') includes: version)
 ]
 
 { #category : #'testing graph' }
